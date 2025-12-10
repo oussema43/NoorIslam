@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chanting & Recitation</title>
+  <meta name="description" content="Listen to curated recitations, nasheeds, and dhikr tracks. Desktop layout for easy listening." />
+  <style>
+    :root{--bg:#F7F9F6; --accent:#194D2D; --muted:#666;}
+    body{font-family:Inter,Arial; margin:0; padding:28px; background:var(--bg); color:#111; display:flex; justify-content:center;}
+    .wrap{max-width:1200px; width:100%;}
+    header{display:flex; justify-content:space-between; align-items:center;}
+    .player{background:white;padding:20px;border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.06); margin-top:20px;}
+    .list{margin-top:18px;}
+    .item{display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #eee;}
+    .btn{background:var(--accent); color:white; padding:8px 12px; border-radius:6px; text-decoration:none;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1 style="color:var(--accent)">Chanting & Recitation</h1>
+      <div>Search: <input type="search" placeholder="Search reciter, surah..." /></div>
+    </header>
+
+    <section class="player">
+      <h2>Now playing — Surah Al-Fatiha (by Shaykh X)</h2>
+      <!-- Simple audio player -->
+      <audio controls style="width:100%;">
+        <source src="/media/surah-al-fatiha.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <div class="list">
+        <div class="item"><div>Surah Yaseen — Shaykh Y</div><div><a class="btn" href="#">Play</a></div></div>
+        <div class="item"><div>Nasheed: Morning Praise</div><div><a class="btn" href="#">Play</a></div></div>
+        <div class="item"><div>Dhikr: Morning Remembrance</div><div><a class="btn" href="#">Play</a></div></div>
+      </div>
+    </section>
+
+    <footer style="margin-top:16px;color:var(--muted)">Respect copyright and proper permissions for recitations and recordings.</footer>
+  </div>
+</body>
+</html>
