@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدليل الإسلامي - الصفحة الكاملة</title>
+    <meta name="description" content="دليل الصلوات الإسلامية - الصلوات الخمس اليومية، أوقاتها، ركعاتها ومعانيها">
+    <title>الدليل الإسلامي - الصلاة</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/mosque.svg" type="image/svg+xml">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for Arabic text -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-green: #2E8B57;
@@ -17,31 +20,17 @@
             --light-green: #3CB371;
             --gold: #D4AF37;
             --cream: #F5F5DC;
-            --light-gray: #f8f9fa;
-            --dark-gray: #2c3e50;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--light-gray);
-            color: #333;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            font-family: 'Amiri', 'Noto Sans Arabic', serif;
+            background-color: #f8f9fa;
+            line-height: 1.8;
+            text-align: right;
+            direction: rtl;
             padding-top: 80px;
-        }
-        
-        .main-content {
-            flex: 1;
         }
         
         /* Navigation Styles */
@@ -204,12 +193,165 @@
             transform: translateY(-1px);
         }
         
-        /* Footer Styles */
+        /* Main Content Styles */
+        .hero-section {
+            background: linear-gradient(rgba(26, 71, 42, 0.85), rgba(46, 139, 87, 0.85)), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .quran-verse {
+            background-color: var(--cream);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        
+        .verse-arabic {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 2;
+        }
+        
+        .verse-translation {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .features-section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            color: var(--dark-green);
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .feature-card .card-body {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            color: var(--dark-green);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .card-text {
+            color: #666;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.4);
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--dark-green);
+        }
+        
+        /* Footer */
         footer {
             background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
             color: white;
             padding: 60px 0 20px;
-            margin-top: auto;
+            margin-top: 60px;
             position: relative;
             overflow: hidden;
         }
@@ -304,30 +446,6 @@
             font-size: 0.9rem;
         }
         
-        .footer-links.horizontal {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            padding: 0;
-            list-style: none;
-            justify-content: center;
-        }
-        
-        .footer-links.horizontal li {
-            margin: 0;
-        }
-        
-        .footer-links.horizontal li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links.horizontal li a:hover {
-            color: #2E8B57;
-        }
-        
         .contact-info {
             list-style: none;
             padding: 0;
@@ -359,7 +477,7 @@
             margin-top: 25px;
         }
         
-        .social-icon {
+        .social-icon-footer {
             width: 40px;
             height: 40px;
             background: rgba(255, 255, 255, 0.1);
@@ -373,7 +491,7 @@
             font-size: 1.1rem;
         }
         
-        .social-icon:hover {
+        .social-icon-footer:hover {
             background: var(--gold);
             color: var(--dark-green);
             transform: translateY(-3px);
@@ -398,251 +516,25 @@
             color: var(--gold);
             margin-top: 10px;
             font-size: 1rem;
-            font-family: 'Amiri', serif;
         }
         
-        /* Main Content Styles */
-        .hero-section {
-            background: linear-gradient(rgba(26, 71, 42, 0.85), rgba(46, 139, 87, 0.85)), 
-                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-        
-        .quran-verse {
-            background-color: var(--cream);
-            padding: 60px 0;
-            margin: 40px 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        
-        .verse-arabic {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            color: var(--dark-green);
-            text-align: center;
-            margin-bottom: 20px;
-            line-height: 2;
-            font-family: 'Amiri', serif;
-        }
-        
-        .verse-translation {
-            font-size: 1.1rem;
-            color: #555;
-            text-align: center;
-            font-style: italic;
-            font-family: 'Tajawal', sans-serif;
-        }
-        
-        .features-section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            color: var(--dark-green);
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            height: 100%;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .feature-card img {
-            height: 220px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .feature-card .card-body {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--primary-green);
-            margin-bottom: 15px;
-        }
-        
-        .card-title {
-            color: var(--dark-green);
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .card-text {
-            color: #666;
-            margin-bottom: 20px;
-            flex: 1;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.4);
-        }
-        
-        /* Animation classes */
+        /* Animations */
         .fade-in {
-            animation: fadeIn 0.6s ease-in;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
         }
         
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .navbar-nav {
-                padding: 20px 0;
-                text-align: center;
-            }
-            
-            .nav-link {
-                justify-content: center;
-                margin: 5px 0;
-                border-radius: 15px;
-            }
-            
-            .nav-link::before {
-                display: none;
-            }
-            
-            .hero-section {
-                padding: 100px 0 60px;
-            }
-            
-            .footer-logo {
-                justify-content: center;
-                text-align: center;
-                margin-bottom: 30px;
-            }
-            
-            .footer-title {
-                text-align: center;
-            }
-            
-            .footer-title::after {
-                right: 50%;
-                transform: translateX(50%);
-            }
-            
-            .social-icons {
-                justify-content: center;
-            }
-            
-            .footer-links.horizontal {
-                justify-content: center;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-section {
-                background-attachment: scroll;
-                padding: 80px 0 50px;
-            }
-            
-            .feature-card {
-                margin-bottom: 25px;
-            }
-            
-            .quran-verse {
-                padding: 40px 0;
-                margin: 20px 0;
-            }
-            
-            .footer-links.horizontal {
-                gap: 10px;
-            }
-            
-            .footer-links.horizontal li a {
-                font-size: 14px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-links.horizontal {
-                gap: 8px;
-            }
-            
-            .footer-links.horizontal li a {
-                font-size: 13px;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .verse-arabic {
-                font-size: 1.5rem;
-            }
-        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
         
         /* Back to top button */
         .back-to-top {
@@ -677,10 +569,79 @@
             transform: translateY(-5px);
         }
         
-        /* Utility classes */
-        .btn-outline-light:hover {
-            color: var(--dark-green);
-            background-color: var(--light-gray);
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .navbar-nav {
+                padding: 20px 0;
+                text-align: center;
+            }
+            
+            .nav-link {
+                justify-content: center;
+                margin: 5px 0;
+                border-radius: 15px;
+            }
+            
+            .nav-link::before {
+                display: none;
+            }
+            
+            .footer-links a {
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .hero-section {
+                padding: 100px 0 60px;
+            }
+            
+            .verse-arabic {
+                font-size: 1.8rem;
+            }
+            
+            .footer-logo h3 {
+                font-size: 1.5rem;
+            }
+            
+            .card-icon {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .verse-arabic {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .btn-primary, .login-btn, .btn-outline-light {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .feature-card img {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -688,9 +649,9 @@
     <!-- Enhanced Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.html" aria-label="الرئيسية - نور الإسلام">
                 <i class="fas fa-mosque"></i>
-               نور الإسلام
+                نور الإسلام
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
@@ -718,6 +679,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="wedding.html">
+
                             الحديث الشريف
                         </a>
                     </li>
@@ -749,7 +711,7 @@
                             الدليل الإسلامي الشامل
                         </h1>
                         <p class="hero-subtitle">
-                            منصة متكاملة لفهم الإسلام الصحيح وفق القرآن الكريم والسنة النبوية
+                            منصة متكاملة لفهم الإسلام الصحيح وفق القرآن الكريم والسنة النبوية، نقدم لكم العلم النافع والمعرفة الصحيحة لترسيخ الإيمان في القلوب
                         </p>
                         <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
                             <a href="#features" class="login-btn">
@@ -767,7 +729,7 @@
         </section>
 
         <!-- Quran Verse -->
-        <section class="quran-verse fade-in">
+        <section class="quran-verse fade-in delay-1">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center">
@@ -785,16 +747,14 @@
         <!-- Features Section -->
         <section id="features" class="features-section">
             <div class="container">
-                <h2 class="section-title">
+                <h2 class="section-title fade-in">
                     دلائلنا الشاملة
                 </h2>
                 
                 <div class="row g-4">
-                    <!-- Wedding Card -->
-
                     <!-- Quran Card -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card fade-in">
+                        <div class="feature-card fade-in delay-1">
                             <img src="https://images.unsplash.com/photo-1511376868136-742c0de2c1b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                                  alt="تلاوة القرآن" 
                                  loading="lazy">
@@ -804,7 +764,7 @@
                                 </div>
                                 <h3 class="card-title">القرآن الكريم</h3>
                                 <p class="card-text">
-                                    تلاوات متنوعة، تفسير الآيات، قواعد التجويد، وحفظ القرآن الكريم بأفضل الطرق
+                                    تلاوات متنوعة، تفسير الآيات، قواعد التجويد، وحفظ القرآن الكريم بأفضل الطرق الموثوقة
                                 </p>
                                 <a href="chanting.html" class="btn btn-primary mt-3">
                                     استمع الآن
@@ -815,7 +775,7 @@
 
                     <!-- Prayer Card -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card fade-in">
+                        <div class="feature-card fade-in delay-2">
                             <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                                  alt="الصلاة" 
                                  loading="lazy">
@@ -825,7 +785,7 @@
                                 </div>
                                 <h3 class="card-title">الصلاة</h3>
                                 <p class="card-text">
-                                    الصلوات الخمس اليومية، شروط الصلاة، كيفية أدائها، وأسرارها الروحية
+                                    الصلوات الخمس اليومية، شروط الصلاة، كيفية أدائها، وأسرارها الروحية مع شرح مفصل
                                 </p>
                                 <a href="prayer.html" class="btn btn-primary mt-3">
                                     تعلم الصلاة
@@ -836,7 +796,7 @@
 
                     <!-- Hadith Card -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card fade-in">
+                        <div class="feature-card fade-in delay-3">
                             <img src="https://images.unsplash.com/photo-1544717305-99670f9c28f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                                  alt="الحديث الشريف" 
                                  loading="lazy">
@@ -846,7 +806,7 @@
                                 </div>
                                 <h3 class="card-title">الحديث الشريف</h3>
                                 <p class="card-text">
-                                    الأحاديث النبوية الصحيحة مع شرحها وتوضيح درجتها وفقهها وتطبيقاتها العملية
+                                    الأحاديث النبوية الصحيحة مع شرحها وتوضيح درجتها وفقهها وتطبيقاتها العملية في الحياة
                                 </p>
                                 <a href="wedding.html" class="btn btn-primary mt-3">
                                     اقرأ الأحاديث
@@ -857,7 +817,7 @@
 
                     <!-- Athkar Card -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card fade-in">
+                        <div class="feature-card fade-in delay-1">
                             <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                                  alt="الأذكار" 
                                  loading="lazy">
@@ -867,7 +827,7 @@
                                 </div>
                                 <h3 class="card-title">الأذكار اليومية</h3>
                                 <p class="card-text">
-                                    أذكار الصباح والمساء، أذكار بعد الصلاة، وأدعية متنوعة من السنة النبوية
+                                    أذكار الصباح والمساء، أذكار بعد الصلاة، وأدعية متنوعة من السنة النبوية المطهرة
                                 </p>
                                 <a href="cypress.html" class="btn btn-primary mt-3">
                                     اكتشف الأذكار
@@ -878,7 +838,7 @@
 
                     <!-- About Card -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="feature-card fade-in">
+                        <div class="feature-card fade-in delay-2">
                             <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
                                  alt="عن المنصة" 
                                  loading="lazy">
@@ -896,13 +856,34 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Contact Card -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="feature-card fade-in delay-3">
+                            <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                                 alt="تواصل معنا" 
+                                 loading="lazy">
+                            <div class="card-body text-center">
+                                <div class="card-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3 class="card-title">تواصل معنا</h3>
+                                <p class="card-text">
+                                    لديك استفسار أو تحتاج مساعدة؟ نحن هنا لمساعدتك والإجابة على جميع أسئلتك
+                                </p>
+                                <a href="#footer" class="btn btn-primary mt-3">
+                                    تواصل الآن
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
     <!-- Footer -->
-    <footer>
+    <footer id="footer">
         <div class="container">
             <div class="row">
                 <!-- About -->
@@ -914,37 +895,38 @@
 
                     <p class="footer-description">
                         منصة إسلامية شاملة تهدف إلى تقديم العلم النافع والمعرفة الصحيحة وفق القرآن الكريم والسنة النبوية الصحيحة.
-                        نقدم خدمات تعليمية وروحية لجميع المسلمين حول العالم.
+                        نقدم خدمات تعليمية وروحية لجميع المسلمين حول العالم لترسيخ الإيمان وتقوية العلاقة مع الله تعالى.
                     </p>
 
                     <div class="social-icons">
-                        <a href="#" class="social-icon" aria-label="فيسبوك">
+                        <a href="#" class="social-icon-footer" aria-label="فيسبوك">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="تويتر">
+                        <a href="#" class="social-icon-footer" aria-label="تويتر">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="يوتيوب">
+                        <a href="#" class="social-icon-footer" aria-label="يوتيوب">
                             <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="#" class="social-icon" aria-label="إنستغرام">
+                        <a href="#" class="social-icon-footer" aria-label="إنستغرام">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
-                 <div class="col-lg-4 col-md-6 mb-5">
-                <h4 class="footer-title">روابط سريعة</h4>
-                <ul class="footer-links">
-                    <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
-                    <li><a href="prayer.html"><i class="fas fa-chevron-left"></i> الصلاة</a></li>
-                    <li><a href="chanting.html"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
-                    <li><a href="wedding.html"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
-                    <li><a href="cypress.html"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
-                    <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المنصة</a></li>
-                </ul>
-            </div>
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="prayer.html"><i class="fas fa-chevron-left"></i> الصلاة</a></li>
+                        <li><a href="chanting.html"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
+                        <li><a href="wedding.html"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
+                        <li><a href="cypress.html"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المنصة</a></li>
+                    </ul>
+                </div>
+                
                 <!-- Contact Info -->
                 <div class="col-lg-3 col-md-6 mb-5">
                     <h4 class="footer-title">تواصل معنا</h4>
@@ -975,7 +957,7 @@
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-8 text-center">
                     <div class="copyright">
-                        <p>© <span id="currentYear"></span>نور الإسلام. جميع الحقوق محفوظة.</p>
+                        <p>© <span id="currentYear"></span> نور الإسلام. جميع الحقوق محفوظة.</p>
                         <p class="footer-quran">
                             "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ" (هود: 88)
                         </p>
@@ -995,7 +977,7 @@
     <script>
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -1003,18 +985,13 @@
             
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            // Show/hide back to top button
-            if (window.scrollY > 300) {
                 backToTop.classList.add('show');
             } else {
+                navbar.classList.remove('scrolled');
                 backToTop.classList.remove('show');
             }
         });
-        
+
         // Back to top functionality
         document.getElementById('backToTop').addEventListener('click', function(e) {
             e.preventDefault();
@@ -1023,51 +1000,23 @@
                 behavior: 'smooth'
             });
         });
-        
-        // Update active nav link
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            navLinks.forEach(link => {
-                const linkHref = link.getAttribute('href');
-                if (linkHref === currentPage || 
-                    (currentPage === '' && linkHref === 'index.html')) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
                 }
             });
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    if (this.getAttribute('href') === '#') return;
-                    
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // Add loading animation to cards
-            const cards = document.querySelectorAll('.feature-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
+        }, observerOptions);
+
+        // Observe elements with animate class
+        document.querySelectorAll('.animate').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
