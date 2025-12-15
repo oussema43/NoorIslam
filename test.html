@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="عن منصة نور الإسلام - رسالتنا، رؤيتنا، وفريق العمل">
+    <title>نور الإسلام - عن المنصة</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/mosque.svg" type="image/svg+xml">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2E8B57;
+            --dark-green: #1a472a;
+            --light-green: #3CB371;
+            --gold: #D4AF37;
+            --cream: #F5F5DC;
+            --light-blue: #E6F3FF;
+            --light-purple: #F3E5F5;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Amiri', 'Noto Sans Arabic', serif;
+            background-color: #f8f9fa;
+            line-height: 1.8;
+            text-align: right;
+            direction: rtl;
+            padding-top: 80px;
+        }
+        
+        /* Navigation Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+        
+        .navbar-brand i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover i {
+            transform: rotate(15deg);
+        }
+        
+        .navbar-toggler {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 12px;
+            transition: var(--transition);
+        }
+        
+        .navbar-toggler:hover {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+            outline: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .navbar-nav {
+            gap: 5px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 12px 20px !important;
+            border-radius: 30px;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 2px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::before {
+            width: calc(100% - 40px);
+        }
+        
+        .nav-link:hover, 
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gold) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.1);
+        }
+        
+        .nav-link.active i {
+            color: var(--gold);
+        }
+        
+        /* Login Button Styles */
+        .login-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, #e6c158 100%);
+            border: none;
+            color: var(--dark-green) !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .login-btn:hover::before {
+            left: 100%;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            color: var(--dark-green) !important;
+        }
+        
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(26, 71, 42, 0.9), rgba(46, 139, 87, 0.9)), 
+                        url('https://images.unsplash.com/photo-1540339832869-9644b6f42a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            margin-top: -80px;
+        }
+        
+        .about-hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .about-hero-subtitle {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            color: var(--dark-green);
+            font-size: 2.2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+        }
+        
+        .section-title.center {
+            text-align: center;
+        }
+        
+        .section-title.center:after {
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        /* Mission Vision Cards */
+        .mission-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mission-icon {
+            font-size: 3.5rem;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+        }
+        
+        .mission-title {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        /* Values Section */
+        .value-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            text-align: center;
+            height: 100%;
+            border-top: 5px solid var(--primary-green);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            color: var(--dark-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        /* Team Section */
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .team-img {
+            height: 250px;
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-icon {
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .team-body {
+            padding: 25px;
+        }
+        
+        .team-name {
+            color: var(--dark-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .team-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f8f9fa;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .team-social a:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-green);
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            margin-right: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary-green);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .right {
+            right: 0;
+        }
+        
+        .right::after {
+            left: -16px;
+        }
+        
+        .left {
+            right: 50%;
+        }
+        
+        .left::after {
+            right: -16px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .timeline-year {
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 15px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .stat-title {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        /* Contact Form */
+        .contact-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+        
+        .form-control {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            margin-bottom: 20px;
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.4);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--primary-green), var(--gold));
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo i {
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .footer-description {
+            color: #bbb;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .footer-title {
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-right: 8px;
+        }
+        
+        .footer-links a i {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+        
+        .contact-info i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icon-footer {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        .social-icon-footer:hover {
+            background: var(--gold);
+            color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 40px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .copyright p {
+            margin-bottom: 5px;
+        }
+        
+        .footer-quran {
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 10px;
+            font-size: 1rem;
+            font-family: 'Amiri', serif;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--dark-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .navbar-nav {
+                padding: 20px 0;
+                text-align: center;
+            }
+            
+            .nav-link {
+                justify-content: center;
+                margin: 5px 0;
+                border-radius: 15px;
+            }
+            
+            .nav-link::before {
+                display: none;
+            }
+            
+            .timeline::after {
+                right: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-right: 70px;
+                padding-left: 25px;
+            }
+            
+            .timeline-item::after {
+                right: 15px;
+                left: auto;
+            }
+            
+            .right {
+                right: 0;
+            }
+            
+            .left {
+                right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .mission-card {
+                padding: 30px 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .mission-card {
+                padding: 20px 15px;
+            }
+            
+            .team-img {
+                height: 200px;
+            }
+            
+            .contact-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="الرئيسية - نور الإسلام">
+                <i class="fas fa-mosque"></i>
+                نور الإسلام
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل القائمة">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" aria-current="page">
+                            <i class="fas fa-home"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prayer.html">
+                            <i class="fas fa-pray"></i>
+                            الصلاة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chanting.html">
+                            <i class="fas fa-book-quran"></i>
+                            القرآن الكريم
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wedding.html">
+                            <i class="fas fa-book-open"></i>
+                            الحديث الشريف
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cypress.html">
+                            <i class="fas fa-dharmachakra"></i>
+                            الأذكار
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">
+                            <i class="fas fa-info-circle"></i>
+                            عن المنصة
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="about-hero-title">منصة نور الإسلام</h1>
+                    <p class="about-hero-subtitle">منارة العلم النافع والمعرفة الصحيحة لكل مسلم في العالم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Mission and Vision -->
+        <section class="mb-5">
+            <h2 class="section-title center">رسالتنا ورؤيتنا</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="mission-card">
+                        <i class="fas fa-bullseye mission-icon"></i>
+                        <h3 class="mission-title">رسالتنا</h3>
+                        <p>تقديم العلم الشرعي الصحيح والمعرفة الإسلامية الموثقة بطرق مبتكرة وعصرية تتناسب مع جميع فئات المجتمع المسلم حول العالم. نهدف إلى تبسيط العلوم الإسلامية وجعلها متاحة للجميع بلغات متعددة، مع الحفاظ على الأصالة والدقة العلمية.</p>
+                        <p>نسعى لبناء جيل واعٍ متعلم بدينه، قادر على فهم القرآن والسنة فهماً صحيحاً، وتطبيق الإسلام تطبيقاً عملياً في حياته اليومية.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="mission-card">
+                        <i class="fas fa-eye mission-icon"></i>
+                        <h3 class="mission-title">رؤيتنا</h3>
+                        <p>أن نكون المنصة الإسلامية الرائدة عالمياً في تقديم المحتوى الشرعي الموثوق، وأن نصل إلى مليون مستخدم بحلول عام 2025، مع توفير خدماتنا بخمس لغات عالمية.</p>
+                        <p>نتطلع لإنشاء مجتمع إسلامي رقمي متكامل، يعين المسلم على أمور دينه ودنياه، ويوفر له البيئة المناسبة للنمو الروحي والفكري، ويكون مرجعاً موثوقاً للباحثين عن الحق والهداية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="mb-5">
+            <h2 class="section-title center">قيمنا الأساسية</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <i class="fas fa-book-open value-icon"></i>
+                        <h4 class="value-title">الأصالة</h4>
+                        <p>نلتزم بالعودة إلى المصادر الأصلية للعلوم الإسلامية ونقدم المعلومة كما جاءت في القرآن والسنة الصحيحة.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <i class="fas fa-check-circle value-icon"></i>
+                        <h4 class="value-title">الدقة العلمية</h4>
+                        <p>كل معلومة نقدمها تخضع للتدقيق والمراجعة من قبل متخصصين في العلوم الشرعية قبل نشرها.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <i class="fas fa-heart value-icon"></i>
+                        <h4 class="value-title">الرحمة والتيسير</h4>
+                        <p>نقدم الإسلام كما جاء رحمة للعالمين، بتيسير الفهم وتبسيط الشرح مع الحفاظ على الدقة.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <i class="fas fa-users value-icon"></i>
+                        <h4 class="value-title">الشمولية</h4>
+                        <p>نخدم جميع فئات المجتمع المسلم باختلاف أعمارهم وثقافاتهم ولغاتهم ومستوياتهم التعليمية.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <i class="fas fa-lightbulb value-icon"></i>
+                        <h4 class="value-title">الابتكار</h4>
+                        <p>نستخدم أحدث التقنيات والأساليب التعليمية لتقديم المحتوى الإسلامي بشكل جذاب وفعال.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="value-card">
+                        <i class="fas fa-handshake value-icon"></i>
+                        <h4 class="value-title">النزاهة</h4>
+                        <p>نعمل بنزاهة وشفافية كاملة، وكل تبرع أو دعم يوجه فقط لتطوير الخدمات وتحسين المحتوى.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Timeline -->
+        <section class="mb-5">
+            <h2 class="section-title center">رحلة التأسيس</h2>
+            <div class="timeline">
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">٢٠٢٠</div>
+                        <h4>فكرة التأسيس</h4>
+                        <p>انطلاق فكرة إنشاء منصة إسلامية شاملة تقدم العلم الشرعي بشكل عصري وبسيط، بعد ملاحظة الحاجة الماسة لمثل هذه الخدمات في العالم الرقمي.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">٢٠٢١</div>
+                        <h4>بداية التنفيذ</h4>
+                        <p>تشكيل الفريق الأول من المتخصصين في العلوم الشرعية والتقنية، وبداية العمل على بناء المحتوى الأساسي والتصميم الأولي للمنصة.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">٢٠٢٢</div>
+                        <h4>الإطلاق الرسمي</h4>
+                        <p>إطلاق النسخة الأولى من المنصة بعد عامين من العمل الجاد، وتقديم خدمات الصلاة والقرآن الكريم كمرحلة أولى.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">٢٠٢٣</div>
+                        <h4>التوسع والانتشار</h4>
+                        <p>إضافة خدمات الحديث الشريف والأذكار، ووصول عدد المستخدمين إلى أكثر من 100,000 مستخدم من مختلف أنحاء العالم.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">٢٠٢٤</div>
+                        <h4>التطوير المستمر</h4>
+                        <p>إطلاق تطبيقات الهواتف الذكية، وتطوير نظام التعلم الذكي، وإضافة المزيد من اللغات لخدمة المسلمين غير الناطقين بالعربية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <h2 class="section-title center" style="color: white;">أرقامنا تتحدث</h2>
+                <div class="row">
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number" id="usersCount">150,000+</div>
+                            <div class="stat-title">مستخدم نشط</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number" id="countriesCount">50+</div>
+                            <div class="stat-title">دولة حول العالم</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number" id="lessonsCount">500+</div>
+                            <div class="stat-title">درس علمي</div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-6 mb-4">
+                        <div class="stat-card">
+                            <div class="stat-number" id="languagesCount">5</div>
+                            <div class="stat-title">لغات متاحة</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team -->
+        <section class="mb-5">
+            <h2 class="section-title center">فريق العمل</h2>
+            <div class="row">
+                <!-- Team Member 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie team-icon"></i>
+                        </div>
+                        <div class="team-body">
+                            <h4 class="team-name">د. أحمد القرشي</h4>
+                            <div class="team-position">المشرف الشرعي</div>
+                            <p>دكتوراه في الفقه المقارن، أستاذ مساعد في الجامعة الإسلامية، له العديد من المؤلفات والبحوث العلمية.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie team-icon"></i>
+                        </div>
+                        <div class="team-body">
+                            <h4 class="team-name">م. محمد العتيبي</h4>
+                            <div class="team-position">مدير التطوير</div>
+                            <p>مهندس برمجيات متخصص في تطوير الويب، لديه خبرة 10 سنوات في بناء المنصات التعليمية.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie team-icon"></i>
+                        </div>
+                        <div class="team-body">
+                            <h4 class="team-name">أ. فاطمة السديس</h4>
+                            <div class="team-position">منتجة المحتوى</div>
+                            <p>متخصصة في الإعلام الإسلامي، حاصلة على ماجستير في الدراسات الإسلامية، ومقدمة برامج دينية.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie team-icon"></i>
+                        </div>
+                        <div class="team-body">
+                            <h4 class="team-name">أ. خالد الحربي</h4>
+                            <div class="team-position">مصمم الواجهات</div>
+                            <p>مصمم جرافيك متخصص في التصميم الإسلامي، حاصل على جوائز في التصميم الرقمي.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie team-icon"></i>
+                        </div>
+                        <div class="team-body">
+                            <h4 class="team-name">د. سارة الغامدي</h4>
+                            <div class="team-position">باحثة شرعية</div>
+                            <p>دكتورة في التفسير وعلوم القرآن، عضو هيئة تدريس في كلية الشريعة، ومحكمة في مسابقات القرآن.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-researchgate"></i></a>
+                                <a href="#"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <i class="fas fa-user-tie team-icon"></i>
+                        </div>
+                        <div class="team-body">
+                            <h4 class="team-name">م. عبدالله الشهراني</h4>
+                            <div class="team-position">مدير المشروع</div>
+                            <p>حاصل على شهادة PMP، يدير مشاريع تقنية منذ 8 سنوات، متخصص في إدارة مشاريع المنصات التعليمية.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-stack-overflow"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="mb-5">
+            <h2 class="section-title center">تواصل معنا</h2>
+            <div class="contact-section">
+                <div class="row">
+                    <div class="col-lg-8 mb-4 mb-lg-0">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <input type="text" class="form-control" placeholder="عنوان الرسالة">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control" placeholder="نص الرسالة..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="contact-info p-4" style="background: #f8f9fa; border-radius: 10px;">
+                            <h5 class="mb-4">معلومات الاتصال</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                                    <span>مكة المكرمة، المملكة العربية السعودية</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-phone me-2 text-primary"></i>
+                                    <span>+966 12 345 6789</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-envelope me-2 text-primary"></i>
+                                    <span>info@islamicguide.com</span>
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fas fa-clock me-2 text-primary"></i>
+                                    <span>الأحد - الخميس: 9 صباحاً - 5 مساءً</span>
+                                </li>
+                            </ul>
+                            <div class="social-icons mt-4">
+                                <a href="#" class="social-icon-footer" style="background: var(--primary-green); color: white;">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon-footer" style="background: var(--primary-green); color: white;">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-icon-footer" style="background: var(--primary-green); color: white;">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon-footer" style="background: var(--primary-green); color: white;">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mb-5">
+            <h2 class="section-title center">الأسئلة الشائعة</h2>
+            <div class="accordion" id="faqAccordion">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            ما هي مصادر المعلومات في المنصة؟
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نعتمد في معلوماتنا على المصادر الشرعية الموثوقة مثل كتب التفسير المعتمدة (تفسير ابن كثير، الطبري، السعدي)، وصحيح البخاري ومسلم، وكتب الفقه المعتمدة من المذاهب الأربعة. كل معلومة تمر بمراجعة من قبل متخصصين قبل نشرها.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            هل المنصة مجانية؟
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نعم، جميع خدمات المنصة الأساسية مجانية بالكامل ولا توجد أي رسوم اشتراك. نحن نؤمن بأن العلم الشرعي حق للجميع. يتم تمويل المنصة من خلال التبرعات الطوعية من المحسنين الذين يؤمنون برسالتنا.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            كيف يمكنني المساهمة في تطوير المنصة؟
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            يمكنك المساهمة بعدة طرق: التبرع المالي لدعم التطوير، المساهمة بالمحتوى العلمي إذا كنت متخصصاً، الترجمة إذا كنت تتقن لغات أخرى، التطوع في المراجعة والتدقيق، أو مجرد نشر الخدمة بين معارفك.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            هل تقدم المنصة شهادات معتمدة؟
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            نعم، نقدم شهادات إتمام للدورات المكتملة، وهي شهادات معتمدة من المنصة ويمكن استخدامها في السيرة الذاتية. كما نتعاون مع مؤسسات تعليمية معتمدة لتقديم شهادات معترف بها رسمياً في بعض البرامج المتخصصة.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="accordion-item mb-3">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            ما هي اللغات المتاحة؟
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            حالياً المنصة متاحة باللغة العربية بشكل كامل، وبعض المحتويات متاحة بالإنجليزية والفرنسية والأوردية والإندونيسية. نعمل على توسيع نطاق الترجمة لتشمل المزيد من اللغات بناءً على طلب المستخدمين.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="footer-logo d-flex align-items-center gap-2">
+                        <i class="fas fa-mosque"></i>
+                        <h3>نور الإسلام</h3>
+                    </div>
+
+                    <p class="footer-description">
+                        منصة إسلامية شاملة تهدف إلى تقديم العلم النافع والمعرفة الصحيحة وفق القرآن الكريم والسنة النبوية الصحيحة.
+                        نقدم خدمات تعليمية وروحية لجميع المسلمين حول العالم.
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon-footer" aria-label="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="prayer.html"><i class="fas fa-chevron-left"></i> الصلاة</a></li>
+                        <li><a href="chanting.html"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
+                        <li><a href="wedding.html"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
+                        <li><a href="cypress.html"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المنصة</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="footer-title">تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-details">
+                                <p>info@islamicguide.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-details">
+                                <p>+966 12 345 6789</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-details">
+                                <p>مكة المكرمة، المملكة العربية السعودية</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8 text-center">
+                    <div class="copyright">
+                        <p>© <span id="currentYear"></span> نور الإسلام. جميع الحقوق محفوظة.</p>
+                        <p class="footer-quran">
+                            "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ" (هود: 88)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="العودة إلى الأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Animate stats counter
+        function animateCounter(elementId, targetValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            const startValue = 0;
+            const increment = targetValue / (duration / 16); // 60fps
+            
+            let currentValue = startValue;
+            const timer = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= targetValue) {
+                    currentValue = targetValue;
+                    clearInterval(timer);
+                }
+                
+                if (elementId === 'usersCount') {
+                    element.textContent = Math.floor(currentValue).toLocaleString() + '+';
+                } else if (elementId === 'countriesCount') {
+                    element.textContent = Math.floor(currentValue) + '+';
+                } else {
+                    element.textContent = Math.floor(currentValue) + '+';
+                }
+            }, 16);
+        }
+        
+        // Initialize stats animation when in viewport
+        function initStatsAnimation() {
+            const statsSection = document.querySelector('.stats-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter('usersCount', 150000);
+                        animateCounter('countriesCount', 50);
+                        animateCounter('lessonsCount', 500);
+                        animateCounter('languagesCount', 5);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        }
+        
+        // Handle contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-check"></i> تم إرسال الرسالة';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+                // Show notification
+                showNotification('شكراً لك! تم استلام رسالتك وسنرد عليك في أقرب وقت.', 'success');
+                
+                // Reset form
+                this.reset();
+            }, 2000);
+        });
+        
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `position-fixed top-0 start-0 m-4 p-3 rounded shadow-lg`;
+            notification.style.backgroundColor = type === 'success' ? 'var(--primary-green)' : '#dc3545';
+            notification.style.color = 'white';
+            notification.style.zIndex = '9999';
+            notification.style.maxWidth = '300px';
+            notification.style.transition = 'transform 0.3s ease';
+            notification.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'} me-2"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(-100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            initStatsAnimation();
+            
+            // Add animation to timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        timelineObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            timelineItems.forEach(item => {
+                timelineObserver.observe(item);
+            });
+            
+            // Add animation to team cards
+            const teamCards = document.querySelectorAll('.team-card');
+            const teamObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('fade-in');
+                        }, index * 100);
+                        teamObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            teamCards.forEach(card => {
+                teamObserver.observe(card);
+            });
+            
+            // FAQ accordion animation
+            const faqItems = document.querySelectorAll('.accordion-button');
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const icon = this.querySelector('i');
+                    if (!icon) {
+                        const arrowIcon = document.createElement('i');
+                        arrowIcon.className = 'fas fa-chevron-down ms-auto';
+                        this.appendChild(arrowIcon);
+                    }
+                    
+                    setTimeout(() => {
+                        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                        const arrowIcon = this.querySelector('i.fa-chevron-down, i.fa-chevron-up');
+                        if (arrowIcon) {
+                            arrowIcon.className = isExpanded ? 'fas fa-chevron-up ms-auto' : 'fas fa-chevron-down ms-auto';
+                        }
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
