@@ -4,650 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="دليل الصلوات الإسلامية - الصلوات الخمس اليومية، أوقاتها، ركعاتها ومعانيها">
-    <title>الدليل الإسلامي - الصلاة</title>
+    <title> نور الإسلام🕌</title>
     <!-- Favicon -->
-    <link rel="icon" href="assets/mosque.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets//mosque.ico" type="image/svg+xml">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-green: #2E8B57;
-            --dark-green: #1a472a;
-            --light-green: #3CB371;
-            --gold: #D4AF37;
-            --cream: #F5F5DC;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
-        
-        body {
-            font-family: 'Amiri', 'Noto Sans Arabic', serif;
-            background-color: #f8f9fa;
-            line-height: 1.8;
-            text-align: right;
-            direction: rtl;
-            padding-top: 80px;
-        }
-        
-        /* Navigation Styles */
-        .navbar {
-            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
-            padding: 15px 0;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        
-        .navbar.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .navbar-brand {
-            color: white !important;
-            font-weight: 700;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: var(--transition);
-        }
-        
-        .navbar-brand:hover {
-            transform: translateY(-2px);
-        }
-        
-        .navbar-brand i {
-            font-size: 1.8rem;
-            color: var(--gold);
-            transition: transform 0.3s ease;
-        }
-        
-        .navbar-brand:hover i {
-            transform: rotate(15deg);
-        }
-        
-        .navbar-toggler {
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 12px;
-            transition: var(--transition);
-        }
-        
-        .navbar-toggler:hover {
-            border-color: var(--gold);
-            transform: scale(1.05);
-        }
-        
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
-            outline: none;
-        }
-        
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-        
-        .navbar-nav {
-            gap: 5px;
-        }
-        
-        .nav-link {
-            color: rgba(255, 255, 255, 0.9) !important;
-            font-weight: 500;
-            font-size: 1.05rem;
-            padding: 12px 20px !important;
-            border-radius: 30px;
-            transition: var(--transition);
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0 2px;
-        }
-        
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            right: 20px;
-            width: 0;
-            height: 2px;
-            background-color: var(--gold);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-        
-        .nav-link:hover::before {
-            width: calc(100% - 40px);
-        }
-        
-        .nav-link:hover, 
-        .nav-link.active {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--gold) !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-link i {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .nav-link:hover i {
-            transform: scale(1.1);
-        }
-        
-        .nav-link.active i {
-            color: var(--gold);
-        }
-        
-        /* Login Button Styles */
-        .login-btn {
-            background: linear-gradient(135deg, var(--gold) 0%, #e6c158 100%);
-            border: none;
-            color: var(--dark-green) !important;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-        }
-        
-        .login-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .login-btn:hover::before {
-            left: 100%;
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-            color: var(--dark-green) !important;
-        }
-        
-        .login-btn:active {
-            transform: translateY(-1px);
-        }
-        
-        /* Main Content Styles */
-        .hero-section {
-            background: linear-gradient(rgba(26, 71, 42, 0.85), rgba(46, 139, 87, 0.85)), 
-                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-        
-        .quran-verse {
-            background-color: var(--cream);
-            padding: 60px 0;
-            margin: 40px 0;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        
-        .verse-arabic {
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            color: var(--dark-green);
-            text-align: center;
-            margin-bottom: 20px;
-            line-height: 2;
-        }
-        
-        .verse-translation {
-            font-size: 1.1rem;
-            color: #555;
-            text-align: center;
-            font-style: italic;
-        }
-        
-        .features-section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            color: var(--dark-green);
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
-        
-        .feature-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            height: 100%;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .feature-card img {
-            height: 220px;
-            width: 100%;
-            object-fit: cover;
-        }
-        
-        .feature-card .card-body {
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        
-        .card-icon {
-            font-size: 2.5rem;
-            color: var(--primary-green);
-            margin-bottom: 15px;
-        }
-        
-        .card-title {
-            color: var(--dark-green);
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 1.3rem;
-        }
-        
-        .card-text {
-            color: #666;
-            margin-bottom: 20px;
-            flex: 1;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.4);
-        }
-        
-        .btn-outline-light {
-            border: 2px solid white;
-            background: transparent;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .btn-outline-light:hover {
-            background: white;
-            color: var(--dark-green);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            color: white;
-            padding: 60px 0 20px;
-            margin-top: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold), var(--primary-green), var(--gold));
-        }
-        
-        .footer-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .footer-logo i {
-            font-size: 2.5rem;
-            color: var(--gold);
-        }
-        
-        .footer-logo h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            margin: 0;
-        }
-        
-        .footer-description {
-            color: #bbb;
-            font-size: 1rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        
-        .footer-title {
-            color: var(--gold);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-green);
-        }
-        
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-        }
-        
-        .footer-links a:hover {
-            color: var(--gold);
-            padding-right: 8px;
-        }
-        
-        .footer-links a i {
-            color: var(--primary-green);
-            font-size: 0.9rem;
-        }
-        
-        .contact-info {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .contact-info li {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-        
-        .contact-info i {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-top: 3px;
-        }
-        
-        .contact-details p {
-            margin: 0;
-            line-height: 1.6;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .social-icon-footer {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1.1rem;
-        }
-        
-        .social-icon-footer:hover {
-            background: var(--gold);
-            color: var(--dark-green);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 25px;
-            margin-top: 40px;
-            text-align: center;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        .copyright p {
-            margin-bottom: 5px;
-        }
-        
-        .footer-quran {
-            font-style: italic;
-            color: var(--gold);
-            margin-top: 10px;
-            font-size: 1rem;
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--gold);
-            color: var(--dark-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: var(--transition);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--primary-green);
-            color: white;
-            transform: translateY(-5px);
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .navbar-nav {
-                padding: 20px 0;
-                text-align: center;
-            }
-            
-            .nav-link {
-                justify-content: center;
-                margin: 5px 0;
-                border-radius: 15px;
-            }
-            
-            .nav-link::before {
-                display: none;
-            }
-            
-            .footer-links a {
-                font-size: 0.95rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-            
-            .navbar-brand {
-                font-size: 1.5rem;
-            }
-            
-            .hero-section {
-                padding: 100px 0 60px;
-            }
-            
-            .verse-arabic {
-                font-size: 1.8rem;
-            }
-            
-            .footer-logo h3 {
-                font-size: 1.5rem;
-            }
-            
-            .card-icon {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .verse-arabic {
-                font-size: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .btn-primary, .login-btn, .btn-outline-light {
-                padding: 10px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .feature-card img {
-                height: 180px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/style_index.css">
 </head>
 <body>
     <!-- Enhanced Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html" aria-label="الرئيسية - نور الإسلام">
                 <i class="fas fa-mosque"></i>
@@ -669,22 +39,25 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="prayer.html">
+                            <i class="fas fa-pray"></i>
                             الصلاة
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="chanting.html">
+                        <a class="nav-link " href="chanting.html">
+                            <i class="fas fa-book-quran"></i>
                             القرآن الكريم
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="wedding.html">
-
+                            <i class="fas fa-book-open"></i>
                             الحديث الشريف
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cypress.html">
+                            <i class="fas fa-dharmachakra"></i>
                             الأذكار
                         </a>
                     </li>
@@ -755,7 +128,7 @@
                     <!-- Quran Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card fade-in delay-1">
-                            <img src="https://images.unsplash.com/photo-1511376868136-742c0de2c1b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            <img src="/assets/images.jpg" 
                                  alt="تلاوة القرآن" 
                                  loading="lazy">
                             <div class="card-body text-center">
@@ -776,7 +149,7 @@
                     <!-- Prayer Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card fade-in delay-2">
-                            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            <img src="/assets/1024-namaz-new-theme.jpg" 
                                  alt="الصلاة" 
                                  loading="lazy">
                             <div class="card-body text-center">
@@ -797,7 +170,7 @@
                     <!-- Hadith Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card fade-in delay-3">
-                            <img src="https://images.unsplash.com/photo-1544717305-99670f9c28f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            <img src="/assets/unnamed.png" 
                                  alt="الحديث الشريف" 
                                  loading="lazy">
                             <div class="card-body text-center">
@@ -818,7 +191,7 @@
                     <!-- Athkar Card -->
                     <div class="col-md-6 col-lg-4">
                         <div class="feature-card fade-in delay-1">
-                            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                            <img src="/assets/images (1).jpg" 
                                  alt="الأذكار" 
                                  loading="lazy">
                             <div class="card-body text-center">
@@ -836,26 +209,7 @@
                         </div>
                     </div>
 
-                    <!-- About Card -->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="feature-card fade-in delay-2">
-                            <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                                 alt="عن المنصة" 
-                                 loading="lazy">
-                            <div class="card-body text-center">
-                                <div class="card-icon">
-                                    <i class="fas fa-info-circle"></i>
-                                </div>
-                                <h3 class="card-title">عن المنصة</h3>
-                                <p class="card-text">
-                                    تعرف على رؤيتنا ورسالتنا، فريق العمل، وأهدافنا في نشر العلم الشرعي الصحيح
-                                </p>
-                                <a href="about.html" class="btn btn-primary mt-3">
-                                    تعرف علينا
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    
 
                     <!-- Contact Card -->
                     <div class="col-md-6 col-lg-4">
@@ -923,7 +277,6 @@
                         <li><a href="chanting.html"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
                         <li><a href="wedding.html"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
                         <li><a href="cypress.html"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-left"></i> عن المنصة</a></li>
                     </ul>
                 </div>
                 
@@ -974,50 +327,6 @@
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-                backToTop.classList.add('show');
-            } else {
-                navbar.classList.remove('scrolled');
-                backToTop.classList.remove('show');
-            }
-        });
-
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements with animate class
-        document.querySelectorAll('.animate').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+    <scrip src ="js/index.js"></script>
 </body>
 </html>
