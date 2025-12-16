@@ -93,28 +93,6 @@
         <section class="mb-5">
             <h2 class="section-title">البحث المتقدم في الأحاديث النبوية</h2>
             <div class="hadith-search-container">
-                <div class="alert alert-info mb-4">
-                    <div class="d-flex align-items-center">
-                        <i class="fas fa-info-circle me-2"></i>
-                        <div>
-                            <strong>ميزات البحث:</strong> ابحث في الأحاديث النبوية بالكلمة المفتاحية أو الراوي أو الكتاب أو جزء من نص الحديث
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="search-controls">
-                    <div class="search-options">
-                        <button class="search-option-btn active" onclick="setSearchType('all')">بحث عام</button>
-                        <button class="search-option-btn" onclick="setSearchType('text')">نص الحديث</button>
-                        <button class="search-option-btn" onclick="setSearchType('rawi')">الراوي</button>
-                        <button class="search-option-btn" onclick="setSearchType('book')">الكتاب</button>
-                    </div>
-                    
-                    <button class="btn btn-outline-primary btn-sm" onclick="toggleAdvancedSearch()">
-                        <i class="fas fa-sliders-h me-1"></i> إعدادات متقدمة
-                    </button>
-                </div>
-                
                 <!-- Enhanced Search Frame -->
                 <div class="search-frame-wrapper">
                     <div class="search-frame-container">
@@ -123,16 +101,11 @@
                         </div>
                         
                         <!-- The main search iframe -->
-                        <iframe src="http://hdith.com/iframe.php?width=1000&prefill=&newwindow=yes&summary=no" style="overflow:hidden;margin:0;padding:0;width:1000px;height:40px;" frameborder="0" onload="hideLoader()"></iframe>>
+                        <iframe src="http://hdith.com/iframe.php?width=1000&prefill=&newwindow=yes&summary=no" style="overflow:hidden;margin:0;padding:0;width:1000px;height:40px;" frameborder="0" onload="hideLoader()"></iframe>
 
                         </div>
                     
-                    <div class="text-center mt-2">
-                        <small class="text-muted">
-                            <i class="fas fa-external-link-alt me-1"></i>
-                            محرك البحث بواسطة <a href="http://hdith.com" target="_blank">موقع الحديث</a>
-                        </small>
-                    </div>
+
                 </div>
                 
                 <!-- Advanced Search Panel -->
@@ -225,9 +198,6 @@
                         <i class="fas fa-hands-praying category-icon"></i>
                         <h4 class="category-title">العقيدة</h4>
                         <p>أحاديث الإيمان والتوحيد والصفات الإلهية والغيبيات</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('عقيدة')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
                 
@@ -236,9 +206,6 @@
                         <i class="fas fa-scale-balanced category-icon"></i>
                         <h4 class="category-title">الفقه</h4>
                         <p>أحاديث العبادات والمعاملات والأحكام الشرعية</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('فقه')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
                 
@@ -247,9 +214,6 @@
                         <i class="fas fa-heart category-icon"></i>
                         <h4 class="category-title">الأخلاق</h4>
                         <p>أحاديث الآداب والسلوك والتربية والتزكية</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('أخلاق')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
                 
@@ -258,9 +222,6 @@
                         <i class="fas fa-users category-icon"></i>
                         <h4 class="category-title">الاجتماع</h4>
                         <p>أحاديث الأسرة والمجتمع والعلاقات الإنسانية</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('اجتماع')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
                 
@@ -269,9 +230,7 @@
                         <i class="fas fa-book-medical category-icon"></i>
                         <h4 class="category-title">الرقائق</h4>
                         <p>أحاديث الترغيب والترهيب والمواعظ والزهد</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('رقائق')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
+                        
                     </div>
                 </div>
                 
@@ -280,9 +239,6 @@
                         <i class="fas fa-hourglass-end category-icon"></i>
                         <h4 class="category-title">الآخرة</h4>
                         <p>أحاديث الموت والبرزخ والقيامة والجنة والنار</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('آخرة')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
                 
@@ -291,9 +247,6 @@
                         <i class="fas fa-dove category-icon"></i>
                         <h4 class="category-title">الدعاء</h4>
                         <p>أحاديث الأذكار والأدعية والاستغفار والتسبيح</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('دعاء')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
                 
@@ -302,9 +255,6 @@
                         <i class="fas fa-history category-icon"></i>
                         <h4 class="category-title">السيرة</h4>
                         <p>أحاديث السيرة النبوية والشمائل والخصائص</p>
-                        <button class="btn btn-sm btn-outline-primary mt-3" onclick="showCategoryHadith('سيرة')">
-                            <i class="fas fa-eye"></i> عرض الأحاديث
-                        </button>
                     </div>
                 </div>
             </div>
@@ -476,9 +426,6 @@
                                     <div class="stat-label">راوي</div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" onclick="searchBook('bukhari')">
-                                <i class="fas fa-search"></i> بحث في الكتاب
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -508,9 +455,6 @@
                                     <div class="stat-label">راوي</div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" onclick="searchBook('muslim')">
-                                <i class="fas fa-search"></i> بحث في الكتاب
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -540,9 +484,6 @@
                                     <div class="stat-label">راوي</div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" onclick="searchBook('abudawud')">
-                                <i class="fas fa-search"></i> بحث في الكتاب
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -572,9 +513,6 @@
                                     <div class="stat-label">راوي</div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" onclick="searchBook('tirmidhi')">
-                                <i class="fas fa-search"></i> بحث في الكتاب
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -604,9 +542,6 @@
                                     <div class="stat-label">راوي</div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" onclick="searchBook('nasai')">
-                                <i class="fas fa-search"></i> بحث في الكتاب
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -636,9 +571,6 @@
                                     <div class="stat-label">راوي</div>
                                 </div>
                             </div>
-                            <button class="btn btn-primary w-100 mt-3" onclick="searchBook('ibnmajah')">
-                                <i class="fas fa-search"></i> بحث في الكتاب
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -659,9 +591,6 @@
                         <div class="d-flex justify-content-center gap-3">
                             <button class="btn btn-light btn-lg" onclick="getRandomHadith()">
                                 <i class="fas fa-random"></i> حديث جديد
-                            </button>
-                            <button class="btn btn-outline-light btn-lg" onclick="shareHadith()">
-                                <i class="fas fa-share"></i> مشاركة
                             </button>
                         </div>
                     </div>

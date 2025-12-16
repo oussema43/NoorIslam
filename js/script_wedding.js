@@ -48,7 +48,6 @@
         
         // Current search type
         let currentSearchType = 'all';
-        let currentSearchBook = 'all';
         let currentSearchGrade = 'all';
         let currentSearchResults = '10';
         
@@ -164,10 +163,6 @@
                     url += `&searchtype=${currentSearchType}`;
                 }
                 
-                // Add book filter
-                if (currentSearchBook !== 'all') {
-                    url += `&book=${currentSearchBook}`;
-                }
                 
                 // Add grade filter
                 if (currentSearchGrade !== 'all') {
@@ -182,32 +177,6 @@
                 
                 iframe.src = url;
             }
-        }
-        
-        // Update search settings
-        function updateSearchSettings() {
-            currentSearchBook = document.getElementById('bookSelect').value;
-            currentSearchGrade = document.getElementById('gradeSelect').value;
-            currentSearchResults = document.getElementById('resultsSelect').value;
-            
-            updateSearchIframe();
-            
-            showNotification('تم تحديث إعدادات البحث');
-        }
-        
-        // Reset search settings
-        function resetSearchSettings() {
-            currentSearchBook = 'all';
-            currentSearchGrade = 'all';
-            currentSearchResults = '10';
-            
-            document.getElementById('bookSelect').value = 'all';
-            document.getElementById('gradeSelect').value = 'all';
-            document.getElementById('resultsSelect').value = '10';
-            
-            updateSearchIframe();
-            
-            showNotification('تم إعادة تعيين الإعدادات');
         }
         
         // Toggle advanced search panel
@@ -235,35 +204,12 @@
             
             document.getElementById('dailyHadithText').textContent = hadith.text;
             document.getElementById('dailyHadithRef').textContent = hadith.reference;
-            
-            showNotification('تم تحديث الحديث بنجاح');
         }
         
-        // Share hadith
-        function shareHadith() {
-            const hadithText = document.getElementById('dailyHadithText').textContent;
-            const hadithRef = document.getElementById('dailyHadithRef').textContent;
-            
-            const shareText = `${hadithText}\n${hadithRef}\n\nمشاركة من موقع نور الإسلام`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'حديث اليوم',
-                    text: shareText,
-                    url: window.location.href
-                });
-            } else {
-                // Fallback for browsers that don't support Web Share API
-                navigator.clipboard.writeText(shareText).then(() => {
-                    showNotification('تم نسخ الحديث إلى الحافظة');
-                });
-            }
-        }
         
         // Show/hide explanation
         function showExplanation(id) {
             const explanation = document.getElementById('explanation' + id);
-            const button = event.currentTarget;
             
             if (explanation.style.display === 'none' || explanation.style.display === '') {
                 explanation.style.display = 'block';
@@ -274,33 +220,8 @@
             }
         }
         
-        // Show category hadith
-        function showCategoryHadith(category) {
-            // In a real application, this would fetch hadiths from the selected category
-            // For now, we'll just show a notification
-            showNotification(`سيتم عرض أحاديث قسم ${category} قريباً`);
-            
-            // Scroll to search section
-            document.querySelector('.hadith-search-container').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
         
         // Search in specific book
-        function searchBook(book) {
-            currentSearchBook = book;
-            document.getElementById('bookSelect').value = book;
-            
-            // Open advanced panel if closed
-            const panel = document.getElementById('advancedPanel');
-            if (panel.style.display === 'none' || panel.style.display === '') {
-                toggleAdvancedSearch();
-            }
-            
-            updateSearchIframe();
-            
-            showNotification(`تم تحديد البحث في ${getBookName(book)}`);
-        }
         
         // Get book name
         function getBookName(bookCode) {
