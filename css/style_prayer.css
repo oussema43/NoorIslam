@@ -1,4 +1,4 @@
-
+/* Custom CSS for Prayer Page */
         :root {
             --primary-green: #2E8B57;
             --dark-green: #1a472a;
@@ -528,30 +528,6 @@
         .footer-links a i {
             color: var(--primary-green);
             font-size: 0.9rem;
-        }
-        
-        .footer-links.horizontal {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            padding: 0;
-            list-style: none;
-            justify-content: center;
-        }
-        
-        .footer-links.horizontal li {
-            margin: 0;
-        }
-        
-        .footer-links.horizontal li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links.horizontal li a:hover {
-            color: #2E8B57;
         }
         
         .contact-info {
@@ -1230,50 +1206,6 @@
             color: #5D4037;
         }
         
-        /* Prayer Positions Visualization */
-        .positions-visualization {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .position-diagram {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-end;
-            height: 200px;
-            margin: 20px 0;
-            position: relative;
-        }
-        
-        .position-bar {
-            width: 60px;
-            background: linear-gradient(to top, var(--primary-green), var(--light-green));
-            border-radius: 8px 8px 0 0;
-            position: relative;
-            transition: height 0.3s ease;
-        }
-        
-        .position-label {
-            position: absolute;
-            bottom: -30px;
-            width: 100%;
-            text-align: center;
-            color: var(--dark-green);
-            font-weight: 600;
-        }
-        
-        .position-height {
-            position: absolute;
-            top: -25px;
-            width: 100%;
-            text-align: center;
-            color: var(--primary-green);
-            font-weight: bold;
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 992px) {
             .navbar-nav {
@@ -1344,27 +1276,6 @@
                 margin-left: 0;
                 margin-bottom: 15px;
             }
-            
-            .position-diagram {
-                flex-direction: column;
-                height: auto;
-                align-items: center;
-            }
-            
-            .position-bar {
-                width: 80%;
-                height: 40px !important;
-                margin-bottom: 40px;
-                border-radius: 8px;
-            }
-            
-            .position-label {
-                bottom: -25px;
-            }
-            
-            .position-height {
-                top: -20px;
-            }
         }
         
         @media (max-width: 576px) {
@@ -1392,4 +1303,101 @@
                 font-size: 1.2rem;
             }
         }
-   
+        
+        /* Position Visualization */
+        .position-diagram {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 200px;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .position-bar {
+            width: 60px;
+            background: linear-gradient(to top, var(--primary-green), var(--light-green));
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: height 0.5s ease;
+        }
+        
+        .position-label {
+            position: absolute;
+            bottom: -25px;
+            width: 100%;
+            text-align: center;
+            color: var(--dark-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .position-height {
+            position: absolute;
+            top: -25px;
+            width: 100%;
+            text-align: center;
+            color: var(--primary-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--primary-green);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        /* Prayer Counter */
+        .prayer-counter {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .counter-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            margin: 10px 0;
+        }
+        
+        .counter-label {
+            color: var(--dark-green);
+            font-size: 1.1rem;
+        }

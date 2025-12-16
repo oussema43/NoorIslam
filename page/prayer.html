@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="دليل الصلوات الإسلامية - الصلوات الخمس اليومية، أوقاتها، ركعاتها ومعانيها">
-    <title> نور الإسلام🕌</title>
+    <title>نور الإسلام 🕌 - الصلاة</title>
     <!-- Favicon -->
-    <link rel="icon" href="/assets//mosque.ico" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style_prayer.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style_prayer.css">
 </head>
 <body class="islamic-pattern">
     <!-- Enhanced Navigation -->
@@ -105,10 +106,10 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <label for="city">أدخل اسم مدينتك لعرض أوقات الصلاة:</label>
-                        <input type="text" id="city" class="form-control" placeholder="أدخل اسم مدينتك">
+                        <input type="text" id="city" class="form-control" placeholder="أدخل اسم مدينتك" value="مكة المكرمة">
                     </div>
                     <div class="col-md-4 mt-3 mt-md-0">
-                        <button type="submit" class="btn btn-primary w-100" onclick="searchCity()">
+                        <button type="button" class="btn btn-primary w-100" onclick="searchCity()">
                             <i class="fas fa-search"></i> بحث
                         </button>
                     </div>
@@ -313,7 +314,7 @@
             </div>
         </section>
 
-        <!-- Wudu Section (مقدمة الآن قبل كيفية الصلاة) -->
+        <!-- Wudu Section -->
         <section class="wudu-section mb-5">
             <div class="container">
                 <h2 class="section-title center">كيفية الوضوء</h2>
@@ -476,7 +477,7 @@
             </div>
         </section>
 
-        <!-- Detailed How to Pray Section (بعد الوضوء) -->
+        <!-- Detailed How to Pray Section -->
         <section class="mb-5">
             <h2 class="section-title">كيفية الصلاة - شرح مفصل</h2>
             
@@ -1094,8 +1095,16 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
+    <!-- Notification Element -->
+    <div class="notification" id="notification">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-check-circle me-2"></i>
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src ="js/script_prayer.js"></script>
+    <script src="js/script_prayer.js"></script>
 </body>
 </html>

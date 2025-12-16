@@ -1,3 +1,4 @@
+// Prayer times data for different cities
 
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -16,13 +17,88 @@
         
         updateCurrentDate();
         
-        // City prayer times data
-        
-        // Function to search for city
-        function searchCity() {
-            const cityInput = document.getElementById('city').value;
-            
+   function searchCity() {
+    const cityInput = document.getElementById("city").value.trim();
+    if (!cityInput) {
+        alert("الرجاء إدخال اسم المدينة");
+        return;
+    }
+
+    // Update city name in HTML
+    document.getElementById("currentCity").textContent = cityInput;
+
+    const country = "Tunisia";
+    const url = `https://api.aladhan.com/v1/timingsByCity?city=${cityInput}&country=${country}&method=2`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            if (data.code !== 200) {
+                alert("لم يتم العثور على المدينة");
+                return;
+            }
+
+            const t = data.data.timings;
+
+            document.getElementById("fajrTime").textContent    = formatTime(t.Fajr);
+            document.getElementById("dhuhrTime").textContent   = formatTime(t.Dhuhr);
+            document.getElementById("asrTime").textContent     = formatTime(t.Asr);
+            document.getElementById("maghribTime").textContent = formatTime(t.Maghrib);
+            document.getElementById("ishaTime").textContent    = formatTime(t.Isha);
+
+            updatePrayerStatus(t);
+        })
+        .catch(err => {
+            console.error(err);
+            alert("حدث خطأ أثناء جلب البيانات");
+        });
+}
+
+/* Convert 24h time to Arabic AM/PM */
+function formatTime(time24) {
+    const [h, m] = time24.split(":");
+    let hour = parseInt(h, 10);
+    const period = hour >= 12 ? "م" : "ص";
+    hour = hour % 12 || 12;
+    return `${hour}:${m} ${period}`;
+}
+
+/* Update prayer status */
+function updatePrayerStatus(timings) {
+    const now = new Date();
+    const today = now.toISOString().split("T")[0];
+
+    const prayers = [
+        { time: timings.Fajr,    id: "fajrTime" },
+        { time: timings.Dhuhr,   id: "dhuhrTime" },
+        { time: timings.Asr,     id: "asrTime" },
+        { time: timings.Maghrib, id: "maghribTime" },
+        { time: timings.Isha,    id: "ishaTime" }
+    ];
+
+    const prayerDates = prayers.map(p => new Date(`${today}T${p.time}`));
+
+    let currentIndex = prayerDates.findIndex((d, i) =>
+        now >= d && (i === prayerDates.length - 1 || now < prayerDates[i + 1])
+    );
+
+    prayers.forEach((p, i) => {
+        const statusEl = document.getElementById(p.id)
+            .closest(".prayer-time")
+            .querySelector(".prayer-status");
+
+        if (i < currentIndex) {
+            statusEl.textContent = "مضت";
+            statusEl.className = "prayer-status status-passed";
+        } else if (i === currentIndex) {
+            statusEl.textContent = "الحالية";
+            statusEl.className = "prayer-status status-current";
+        } else {
+            statusEl.textContent = "قادمة";
+            statusEl.className = "prayer-status status-upcoming";
         }
+    });
+}
         
         // Update prayer times based on selected city
         function updatePrayerTimes(city) {
@@ -134,8 +210,11 @@
         // Update next prayer every minute
         setInterval(() => {
             const currentCity = document.getElementById('currentCity').textContent;
-            if (prayerTimesData[currentCity]) {
-                updateNextPrayer(prayerTimesData[currentCity].times);
+            for (const [key, data] of Object.entries(prayerTimesData)) {
+                if (data.name === currentCity) {
+                    updateNextPrayer(data.times);
+                    break;
+                }
             }
         }, 60000);
         
@@ -164,42 +243,32 @@
         
         // Set prayer reminder
         function setPrayerReminder() {
-            if (Notification.permission === 'granted') {
-                showNotification('تم تفعيل التذكير بالصلاة');
-            } else if (Notification.permission !== 'denied') {
-                Notification.requestPermission().then(permission => {
-                    if (permission === 'granted') {
-                        showNotification('تم تفعيل التذكير بالصلاة');
-                    }
-                });
+            if ('Notification' in window) {
+                if (Notification.permission === 'granted') {
+                    showNotification('تم تفعيل التذكير بالصلاة');
+                } else if (Notification.permission !== 'denied') {
+                    Notification.requestPermission().then(permission => {
+                        if (permission === 'granted') {
+                            showNotification('تم تفعيل التذكير بالصلاة');
+                        }
+                    });
+                }
+            } else {
+                showNotification('متصفحك لا يدعم الإشعارات');
             }
         }
         
         // Show notification
         function showNotification(message) {
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = 'position-fixed top-0 start-0 m-4 p-3 rounded shadow-lg';
-            notification.style.backgroundColor = 'var(--primary-green)';
-            notification.style.color = 'white';
-            notification.style.zIndex = '9999';
-            notification.style.maxWidth = '300px';
-            notification.style.transition = 'transform 0.3s ease';
-            notification.innerHTML = `
-                <div class="d-flex align-items-center">
-                    <i class="fas fa-check-circle me-2"></i>
-                    <span>${message}</span>
-                </div>
-            `;
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
             
-            document.body.appendChild(notification);
+            notificationText.textContent = message;
+            notification.classList.add('show');
             
             // Remove after 3 seconds
             setTimeout(() => {
-                notification.style.transform = 'translateX(-100%)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
+                notification.classList.remove('show');
             }, 3000);
         }
         
@@ -213,16 +282,6 @@
                 });
             });
             
-            // Animate position bars
-            const positionBars = document.querySelectorAll('.position-bar');
-            positionBars.forEach(bar => {
-                const height = bar.style.height;
-                bar.style.height = '0px';
-                setTimeout(() => {
-                    bar.style.height = height;
-                }, 500);
-            });
-            
             // Add hover effect to prayer table rows
             const tableRows = document.querySelectorAll('.prayer-table tbody tr');
             tableRows.forEach(row => {
@@ -233,6 +292,18 @@
                     this.style.backgroundColor = '';
                 });
             });
+            
+            // Initialize position bars animation
+            setTimeout(() => {
+                const positionBars = document.querySelectorAll('.position-bar');
+                if (positionBars.length > 0) {
+                    positionBars.forEach((bar, index) => {
+                        const heights = [180, 160, 140, 120, 100];
+                        bar.style.height = heights[index % heights.length] + 'px';
+                        bar.querySelector('.position-height').textContent = heights[index % heights.length] + 'سم';
+                    });
+                }
+            }, 500);
         });
         
         // Prayer step details function
@@ -265,3 +336,22 @@
                 showNotification(`خطوة ${stepNumber}: ${title} - ${detail}`);
             }
         }
+        
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('show');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Initialize on load
+        animateOnScroll();

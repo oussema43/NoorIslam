@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="أنشئ حسابك في منصة نور الإسلام - الدليل الإسلامي الشامل">
+    <title>إنشاء حساب - نور الإسلام🕌</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/mosque.ico" type="image/svg+xml">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #2E8B57;
+            --dark-green: #1a472a;
+            --light-green: #3CB371;
+            --gold: #D4AF37;
+            --cream: #F5F5DC;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Amiri', 'Noto Sans Arabic', serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9f5e9 100%);
+            line-height: 1.8;
+            text-align: right;
+            direction: rtl;
+            padding-top: 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Navigation Styles */
+        .navbar {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: 700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+        
+        .navbar-brand i {
+            font-size: 1.8rem;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand:hover i {
+            transform: rotate(15deg);
+        }
+        
+        .navbar-toggler {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 12px;
+            transition: var(--transition);
+        }
+        
+        .navbar-toggler:hover {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+            outline: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .navbar-nav {
+            gap: 5px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 12px 20px !important;
+            border-radius: 30px;
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 2px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            right: 20px;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-link:hover::before {
+            width: calc(100% - 40px);
+        }
+        
+        .nav-link:hover, 
+        .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--gold) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-link:hover i {
+            transform: scale(1.1);
+        }
+        
+        .nav-link.active i {
+            color: var(--gold);
+        }
+        
+        /* Login Button Styles */
+        .login-btn {
+            background: linear-gradient(135deg, var(--gold) 0%, #e6c158 100%);
+            border: none;
+            color: var(--dark-green) !important;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .login-btn:hover::before {
+            left: 100%;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            color: var(--dark-green) !important;
+        }
+        
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+        
+        /* Register Container */
+        .register-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 15px;
+            position: relative;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .register-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            min-height: 650px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .register-left {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(26, 71, 42, 0.85), rgba(46, 139, 87, 0.85)), 
+                        url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .register-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 71, 42, 0.9), rgba(46, 139, 87, 0.8));
+            z-index: 1;
+        }
+        
+        .register-left-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .register-right {
+            flex: 1.2;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .welcome-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .welcome-subtitle {
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .register-form {
+            width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            color: var(--dark-green);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.05rem;
+        }
+        
+        .form-control {
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #f9f9f9;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+            background-color: white;
+        }
+        
+        .form-control::placeholder {
+            color: #aaa;
+        }
+        
+        .input-icon {
+            position: relative;
+        }
+        
+        .input-icon i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-green);
+            font-size: 1.1rem;
+        }
+        
+        .input-icon input {
+            padding-right: 50px;
+        }
+        
+        .register-btn-form {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+            border: none;
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .register-btn-form:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+        }
+        
+        .register-btn-form:active {
+            transform: translateY(-1px);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+            color: #777;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #e0e0e0;
+        }
+        
+        .divider span {
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+        
+        .social-register {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            color: #555;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .social-btn:hover {
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+        }
+        
+        .form-footer a {
+            color: var(--primary-green);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .form-footer a:hover {
+            color: var(--dark-green);
+            text-decoration: underline;
+        }
+        
+        .password-requirements {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            padding-right: 10px;
+        }
+        
+        .password-requirements ul {
+            margin: 5px 0;
+            padding-right: 20px;
+        }
+        
+        .password-requirements li {
+            margin-bottom: 3px;
+        }
+        
+        .quran-verse-register {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .verse-translation-register {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .register-benefits {
+            list-style: none;
+            padding: 0;
+            margin-top: 40px;
+        }
+        
+        .register-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .register-benefits i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        
+        .register-logo {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .register-logo-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+        }
+        
+        .register-logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .terms-checkbox input[type="checkbox"] {
+            margin-top: 5px;
+        }
+        
+        .terms-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .terms-label a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+        
+        .terms-label a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Password strength indicator */
+        .password-strength {
+            height: 5px;
+            border-radius: 3px;
+            background-color: #eee;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .strength-text {
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: #666;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .register-card {
+                flex-direction: column;
+                max-width: 600px;
+            }
+            
+            .register-left, .register-right {
+                padding: 40px 30px;
+            }
+            
+            .register-left {
+                padding: 60px 30px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+            
+            .register-left, .register-right {
+                padding: 40px 20px;
+            }
+            
+            .quran-verse-register {
+                font-size: 1.4rem;
+            }
+            
+            .social-register {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .welcome-title {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-subtitle {
+                font-size: 1rem;
+            }
+            
+            .quran-verse-register {
+                font-size: 1.2rem;
+            }
+            
+            .register-btn-form {
+                padding: 14px;
+            }
+            
+            .register-right {
+                padding: 40px 15px;
+            }
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--primary-green), var(--gold));
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo i {
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+        
+        .footer-description {
+            color: #bbb;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        .footer-title {
+            color: var(--gold);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            padding-right: 8px;
+        }
+        
+        .footer-links a i {
+            color: var(--primary-green);
+            font-size: 0.9rem;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+        
+        .contact-info i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .contact-details p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icon-footer {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        .social-icon-footer:hover {
+            background: var(--gold);
+            color: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 40px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .copyright p {
+            margin-bottom: 5px;
+        }
+        
+        .footer-quran {
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--dark-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: var(--transition);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Custom checkbox styling */
+        .form-check-input:checked {
+            background-color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+        
+        .form-check-input:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 0.25rem rgba(46, 139, 87, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="الرئيسية - نور الإسلام">
+                <i class="fas fa-mosque"></i>
+                نور الإسلام
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل القائمة">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="prayer.html">
+                            <i class="fas fa-pray"></i>
+                            الصلاة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="chanting.html">
+                            <i class="fas fa-book-quran"></i>
+                            القرآن الكريم
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wedding.html">
+                            <i class="fas fa-book-open"></i>
+                            الحديث الشريف
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cypress.html">
+                            <i class="fas fa-dharmachakra"></i>
+                            الأذكار
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Container -->
+    <div class="register-container">
+        <div class="register-card">
+            <!-- Left side with Islamic content -->
+            <div class="register-left">
+                <div class="register-left-content">
+                    <div class="register-logo">
+                        <i class="fas fa-mosque register-logo-icon"></i>
+                        <div class="register-logo-text">نور الإسلام</div>
+                    </div>
+                    
+                    <p class="quran-verse-register">
+                        ﴿وَمَنْ أَحْسَنُ قَوْلًا مِمَّن دَعَا إِلَى اللَّهِ وَعَمِلَ صَالِحًا وَقَالَ إِنَّنِي مِنَ الْمُسْلِمِينَ﴾
+                    </p>
+                    <p class="verse-translation-register">
+                        "ومن أحسن قولاً ممن دعا إلى الله وعمل صالحاً وقال إنني من المسلمين" (سورة فصلت، الآية 33)
+                    </p>
+                    
+                    <ul class="register-benefits">
+                        <li>
+                            <i class="fas fa-star"></i>
+                            <span>انضم إلى مجتمع إسلامي عالمي</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>احصل على دورات تعليمية مجانية</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-quran"></i>
+                            <span>تتبع تقدمك في حفظ القرآن الكريم</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i>
+                            <span>تواصل مع شيوخ ومشايخ موثوقين</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-award"></i>
+                            <span>احصل على شهادات إلكترونية معتمدة</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Right side with registration form -->
+            <div class="register-right">
+                <h2 class="welcome-title">أنشئ حسابك الجديد</h2>
+                <p class="welcome-subtitle">انضم إلى مجتمع نور الإسلام وابدأ رحلتك التعليمية</p>
+                
+                <form class="register-form" id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">الاسم الأول</label>
+                            <div class="input-icon">
+                                <input type="text" id="firstName" class="form-control" placeholder="أحمد" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">اسم العائلة</label>
+                            <div class="input-icon">
+                                <input type="text" id="lastName" class="form-control" placeholder="محمد" required>
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">البريد الإلكتروني</label>
+                        <div class="input-icon">
+                            <input type="email" id="email" class="form-control" placeholder="example@email.com" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">رقم الهاتف (اختياري)</label>
+                        <div class="input-icon">
+                            <input type="tel" id="phone" class="form-control" placeholder="05XXXXXXXX">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country" class="form-label">البلد</label>
+                        <select id="country" class="form-control" required>
+                            <option value="" disabled selected>اختر بلدك</option>
+                            <option value="SA">المملكة العربية السعودية</option>
+                            <option value="EG">مصر</option>
+                            <option value="AE">الإمارات العربية المتحدة</option>
+                            <option value="QA">قطر</option>
+                            <option value="KW">الكويت</option>
+                            <option value="OM">عمان</option>
+                            <option value="BH">البحرين</option>
+                            <option value="JO">الأردن</option>
+                            <option value="LB">لبنان</option>
+                            <option value="MA">المغرب</option>
+                            <option value="DZ">الجزائر</option>
+                            <option value="TN">تونس</option>
+                            <option value="other">دولة أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">كلمة المرور</label>
+                        <div class="input-icon">
+                            <input type="password" id="password" class="form-control" placeholder="أدخل كلمة مرور قوية" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                        </div>
+                        <div class="strength-text" id="strengthText">قوة كلمة المرور</div>
+                        <div class="password-requirements">
+                            <p>يجب أن تحتوي كلمة المرور على:</p>
+                            <ul>
+                                <li id="reqLength">8 أحرف على الأقل</li>
+                                <li id="reqUppercase">حرف كبير واحد على الأقل</li>
+                                <li id="reqLowercase">حرف صغير واحد على الأقل</li>
+                                <li id="reqNumber">رقم واحد على الأقل</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">تأكيد كلمة المرور</label>
+                        <div class="input-icon">
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="أعد إدخال كلمة المرور" required>
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div id="passwordMatch" class="strength-text"></div>
+                    </div>
+                    
+                    <div class="terms-checkbox">
+                        <input type="checkbox" id="terms" class="form-check-input" required>
+                        <label for="terms" class="terms-label">
+                            أوافق على <a href="terms.html" target="_blank">شروط الخدمة</a> و <a href="privacy.html" target="_blank">سياسة الخصوصية</a> للمنصة. كما أوافق على تلقي رسائل إلكترونية تتعلق بالمنصة والتحديثات.
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="register-btn-form">
+                        <i class="fas fa-user-plus"></i>
+                        إنشاء حساب
+                    </button>
+                    
+                    <div class="divider">
+                        <span>أو سجل باستخدام</span>
+                    </div>
+                    
+                    <div class="social-register">
+                        <button type="button" class="social-btn" id="googleBtn">
+                            <i class="fab fa-google"></i>
+                            جوجل
+                        </button>
+                        <button type="button" class="social-btn" id="facebookBtn">
+                            <i class="fab fa-facebook-f"></i>
+                            فيسبوك
+                        </button>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <p>هل لديك حساب بالفعل؟ <a href="login.html">سجل الدخول الآن</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="footer-logo d-flex align-items-center gap-2">
+                        <i class="fas fa-mosque"></i>
+                        <h3>نور الإسلام</h3>
+                    </div>
+
+                    <p class="footer-description">
+                        منصة إسلامية شاملة تهدف إلى تقديم العلم النافع والمعرفة الصحيحة وفق القرآن الكريم والسنة النبوية الصحيحة.
+                        نقدم خدمات تعليمية وروحية لجميع المسلمين حول العالم لترسيخ الإيمان وتقوية العلاقة مع الله تعالى.
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon-footer" aria-label="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="prayer.html"><i class="fas fa-chevron-left"></i> الصلاة</a></li>
+                        <li><a href="chanting.html"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
+                        <li><a href="wedding.html"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
+                        <li><a href="cypress.html"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="footer-title">تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-details">
+                                <p>info@islamicguide.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-details">
+                                <p>+966 12 345 6789</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-details">
+                                <p>مكة المكرمة، المملكة العربية السعودية</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8 text-center">
+                    <div class="copyright">
+                        <p>© <span id="currentYear"></span> نور الإسلام. جميع الحقوق محفوظة.</p>
+                        <p class="footer-quran">
+                            "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ" (هود: 88)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="العودة إلى الأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                backToTop.classList.add('show');
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Password strength checker
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const strengthBar = document.getElementById('passwordStrengthBar');
+        const strengthText = document.getElementById('strengthText');
+        const passwordMatch = document.getElementById('passwordMatch');
+        
+        // Password requirements elements
+        const reqLength = document.getElementById('reqLength');
+        const reqUppercase = document.getElementById('reqUppercase');
+        const reqLowercase = document.getElementById('reqLowercase');
+        const reqNumber = document.getElementById('reqNumber');
+        
+        passwordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            let strength = 0;
+            
+            // Check password length
+            if (password.length >= 8) {
+                strength += 25;
+                reqLength.style.color = 'green';
+                reqLength.innerHTML = '✓ 8 أحرف على الأقل';
+            } else {
+                reqLength.style.color = '#666';
+                reqLength.innerHTML = '8 أحرف على الأقل';
+            }
+            
+            // Check uppercase letters
+            if (/[A-Z]/.test(password)) {
+                strength += 25;
+                reqUppercase.style.color = 'green';
+                reqUppercase.innerHTML = '✓ حرف كبير واحد على الأقل';
+            } else {
+                reqUppercase.style.color = '#666';
+                reqUppercase.innerHTML = 'حرف كبير واحد على الأقل';
+            }
+            
+            // Check lowercase letters
+            if (/[a-z]/.test(password)) {
+                strength += 25;
+                reqLowercase.style.color = 'green';
+                reqLowercase.innerHTML = '✓ حرف صغير واحد على الأقل';
+            } else {
+                reqLowercase.style.color = '#666';
+                reqLowercase.innerHTML = 'حرف صغير واحد على الأقل';
+            }
+            
+            // Check numbers
+            if (/[0-9]/.test(password)) {
+                strength += 25;
+                reqNumber.style.color = 'green';
+                reqNumber.innerHTML = '✓ رقم واحد على الأقل';
+            } else {
+                reqNumber.style.color = '#666';
+                reqNumber.innerHTML = 'رقم واحد على الأقل';
+            }
+            
+            // Update strength bar
+            strengthBar.style.width = strength + '%';
+            
+            // Update strength text and color
+            if (strength === 0) {
+                strengthBar.style.backgroundColor = '#ddd';
+                strengthText.textContent = 'قوة كلمة المرور';
+                strengthText.style.color = '#666';
+            } else if (strength <= 50) {
+                strengthBar.style.backgroundColor = '#ff4d4d';
+                strengthText.textContent = 'ضعيفة';
+                strengthText.style.color = '#ff4d4d';
+            } else if (strength <= 75) {
+                strengthBar.style.backgroundColor = '#ffa500';
+                strengthText.textContent = 'متوسطة';
+                strengthText.style.color = '#ffa500';
+            } else {
+                strengthBar.style.backgroundColor = '#2E8B57';
+                strengthText.textContent = 'قوية';
+                strengthText.style.color = '#2E8B57';
+            }
+        });
+        
+        // Password confirmation check
+        confirmPasswordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            
+            if (confirmPassword === '') {
+                passwordMatch.textContent = '';
+                passwordMatch.style.color = '#666';
+            } else if (password === confirmPassword) {
+                passwordMatch.textContent = '✓ كلمات المرور متطابقة';
+                passwordMatch.style.color = 'green';
+            } else {
+                passwordMatch.textContent = '✗ كلمات المرور غير متطابقة';
+                passwordMatch.style.color = 'red';
+            }
+        });
+        
+        // Form submission handling
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const country = document.getElementById('country').value;
+            const terms = document.getElementById('terms').checked;
+            
+            // Validation
+            let isValid = true;
+            let errorMessage = '';
+            
+            if (!firstName || !lastName || !email || !password || !confirmPassword || !country) {
+                isValid = false;
+                errorMessage = 'يرجى ملء جميع الحقول المطلوبة';
+            }
+            
+            if (password !== confirmPassword) {
+                isValid = false;
+                errorMessage = 'كلمات المرور غير متطابقة';
+            }
+            
+            if (password.length < 8) {
+                isValid = false;
+                errorMessage = 'كلمة المرور يجب أن تكون 8 أحرف على الأقل';
+            }
+            
+            if (!terms) {
+                isValid = false;
+                errorMessage = 'يجب الموافقة على الشروط والأحكام';
+            }
+            
+            if (!isValid) {
+                alert(errorMessage);
+                return;
+            }
+            
+            // Simulate registration process
+            const registerBtn = document.querySelector('.register-btn-form');
+            const originalText = registerBtn.innerHTML;
+            
+            registerBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري إنشاء الحساب...';
+            registerBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // For demo purposes, always succeed
+                alert(`مبروك ${firstName} ${lastName}! تم إنشاء حسابك بنجاح.\nتم إرسال رسالة تفعيل إلى ${email}.`);
+                window.location.href = 'login.html';
+            }, 2000);
+        });
+        
+        // Social registration buttons
+        document.getElementById('googleBtn').addEventListener('click', function() {
+            alert('سيتم توجيهك لتسجيل الدخول باستخدام جوجل. هذه ميزة تجريبية.');
+        });
+        
+        document.getElementById('facebookBtn').addEventListener('click', function() {
+            alert('سيتم توجيهك لتسجيل الدخول باستخدام فيسبوك. هذه ميزة تجريبية.');
+        });
+        
+        // Auto-select Saudi Arabia as default
+        document.getElementById('country').value = 'SA';
+    </script>
+</body>
+</html>
