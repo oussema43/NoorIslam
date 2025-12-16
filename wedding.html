@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="الحديث الشريف - أحاديث النبي صلى الله عليه وسلم مع شرحها وتخريجها">
-    <title> نور الإسلام🕌</title>
+    <title>نور الإسلام 🕌</title>
     <!-- Favicon -->
-    <link rel="icon" href="/assets//mosque.ico" type="image/svg+xml">
+    <link rel="icon" href="/assets/mosque.ico" type="image/svg+xml">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -15,11 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style_wedding.css">
-
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html" aria-label="الرئيسية - نور الإسلام">
                 <i class="fas fa-mosque"></i>
@@ -101,11 +100,15 @@
                         </div>
                         
                         <!-- The main search iframe -->
-                        <iframe src="http://hdith.com/iframe.php?width=1000&prefill=&newwindow=yes&summary=no" style="overflow:hidden;margin:0;padding:0;width:1000px;height:40px;" frameborder="0" onload="hideLoader()"></iframe>
-
-                        </div>
-                    
-
+                        <iframe 
+                            src="http://hdith.com/iframe.php?width=100%&prefill=&newwindow=yes&summary=no" 
+                            style="width:100%; height:80px; border:none;" 
+                            frameborder="0" 
+                            id="mainSearchFrame"
+                            onload="hideLoader()"
+                            title="بحث في الأحاديث النبوية">
+                        </iframe>
+                    </div>
                 </div>
                 
                 <!-- Advanced Search Panel -->
@@ -230,7 +233,6 @@
                         <i class="fas fa-book-medical category-icon"></i>
                         <h4 class="category-title">الرقائق</h4>
                         <p>أحاديث الترغيب والترهيب والمواعظ والزهد</p>
-                        
                     </div>
                 </div>
                 
@@ -260,140 +262,67 @@
             </div>
         </section>
 
-        <!-- Featured Hadiths -->
-        <section class="mb-5">
+        <section>
             <h2 class="section-title">أحاديث مختارة من صحيح البخاري</h2>
             
             <!-- Hadith 1 -->
             <div class="hadith-card">
                 <div class="hadith-text">
-                    قال رسول الله صلى الله عليه وسلم: "إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى، فمن كانت هجرته إلى الله ورسوله فهجرته إلى الله ورسوله، ومن كانت هجرته لدنيا يصيبها أو امرأة ينكحها فهجرته إلى ما هاجر إليه".
+                    قال رسول الله ﷺ: "إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى، فمن كانت هجرته إلى الله ورسوله، فهجرته إلى الله ورسوله، ومن كانت هجرته لدنيا يصيبها أو امرأة ينكحها، فهجرته إلى ما هاجر إليه".
                 </div>
                 
-                <div class="hadith-reference">
-                    <div class="reference-title">الراوي:</div>
-                    <div>عمر بن الخطاب رضي الله عنه</div>
-                </div>
+                <div class="hadith-reference"><strong>الراوي:</strong> عمر بن الخطاب رضي الله عنه</div>
+                <div class="hadith-reference"><strong>المصدر:</strong> صحيح البخاري</div>
+                <div class="hadith-reference"><strong>رقم الحديث:</strong> 1</div>
                 
-                <div class="hadith-reference">
-                    <div class="reference-title">المصدر:</div>
-                    <div>صحيح البخاري، كتاب بدء الوحي، باب كيف كان بدء الوحي إلى رسول الله صلى الله عليه وسلم</div>
-                </div>
-                
-                <div class="hadith-reference">
-                    <div class="reference-title">رقم الحديث:</div>
-                    <div>1</div>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span class="hadith-grade grade-sahih">صحيح</span>
-                    <button class="btn btn-primary" onclick="showExplanation(1)">
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="hadith-grade">صحيح</span>
+                    <button class="btn btn-primary" onclick="showExplanation(1, this)">
                         <i class="fas fa-lightbulb"></i> شرح الحديث
                     </button>
                 </div>
                 
-                <div class="explanation-section" id="explanation1">
-                    <h5 class="explanation-title">
-                        <i class="fas fa-book-open"></i>
-                        شرح الحديث
-                    </h5>
-                    <p>هذا الحديث أصل عظيم في الإسلام، وهو من الأحاديث التي عليها مدار الإسلام. ومعناه أن الأعمال لا تقبل إلا بالنية، والنية محلها القلب. فالعمل الواحد يختلف حكمه باختلاف النية، فمن نوى بعمله وجه الله تعالى كان عمله صحيحاً مقبولاً، ومن نوى بعمله الرياء أو السمعة أو حظاً من الدنيا كان عمله باطلاً.</p>
-                    <p class="mt-3"><strong>فوائد الحديث:</strong></p>
-                    <ul>
-                        <li>بيان أهمية النية في قبول الأعمال</li>
-                        <li>أن العمل قد يكون صحيحاً في الظاهر لكنه باطل لفساد النية</li>
-                        <li>أن النية تميز العبادات عن العادات</li>
-                        <li>أن العبرة في الأعمال بمقاصدها ونياتها</li>
-                    </ul>
-                </div>
+                <div class="explanation-section" id="explanation1"></div>
             </div>
             
             <!-- Hadith 2 -->
             <div class="hadith-card">
                 <div class="hadith-text">
-                    قال رسول الله صلى الله عليه وسلم: "من أحدث في أمرنا هذا ما ليس منه فهو رد".
+                    قال رسول الله ﷺ: "من أحدث في أمرنا هذا ما ليس منه فهو رد".
                 </div>
                 
-                <div class="hadith-reference">
-                    <div class="reference-title">الراوي:</div>
-                    <div>عائشة رضي الله عنها</div>
-                </div>
+                <div class="hadith-reference"><strong>الراوي:</strong> عائشة رضي الله عنها</div>
+                <div class="hadith-reference"><strong>المصدر:</strong> صحيح البخاري</div>
+                <div class="hadith-reference"><strong>رقم الحديث:</strong> 2697</div>
                 
-                <div class="hadith-reference">
-                    <div class="reference-title">المصدر:</div>
-                    <div>صحيح البخاري، كتاب الصلح، باب إذا اصطلحوا على صلح جور فالصلح مردود</div>
-                </div>
-                
-                <div class="hadith-reference">
-                    <div class="reference-title">رقم الحديث:</div>
-                    <div>2697</div>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span class="hadith-grade grade-sahih">صحيح</span>
-                    <button class="btn btn-primary" onclick="showExplanation(2)">
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="hadith-grade">صحيح</span>
+                    <button class="btn btn-primary" onclick="showExplanation(2, this)">
                         <i class="fas fa-lightbulb"></i> شرح الحديث
                     </button>
                 </div>
                 
-                <div class="explanation-section" id="explanation2">
-                    <h5 class="explanation-title">
-                        <i class="fas fa-book-open"></i>
-                        شرح الحديث
-                    </h5>
-                    <p>هذا الحديث أصل في رد البدع والمحدثات في الدين. ومعناه أن كل من اخترع في دين الله ما ليس منه من العبادات أو المعتقدات أو الأحكام، فهو مردود عليه غير مقبول. وهذا الحديث يدل على وجوب التزام السنة وترك الابتداع في الدين.</p>
-                    <p class="mt-3"><strong>فوائد الحديث:</strong></p>
-                    <ul>
-                        <li>تحريم الابتداع في الدين</li>
-                        <li>أن كل بدعة ضلالة</li>
-                        <li>وجوب التزام السنة النبوية</li>
-                        <li>أن الدين كامل لا يحتاج إلى زيادة</li>
-                    </ul>
-                </div>
+                <div class="explanation-section" id="explanation2"></div>
             </div>
             
             <!-- Hadith 3 -->
             <div class="hadith-card">
                 <div class="hadith-text">
-                    قال رسول الله صلى الله عليه وسلم: "لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين".
+                    قال رسول الله ﷺ: "لا يؤمن أحدكم حتى أكون أحب إليه من والده وولده والناس أجمعين".
                 </div>
                 
-                <div class="hadith-reference">
-                    <div class="reference-title">الراوي:</div>
-                    <div>أنس بن مالك رضي الله عنه</div>
-                </div>
+                <div class="hadith-reference"><strong>الراوي:</strong> أنس بن مالك رضي الله عنه</div>
+                <div class="hadith-reference"><strong>المصدر:</strong> صحيح البخاري</div>
+                <div class="hadith-reference"><strong>رقم الحديث:</strong> 15</div>
                 
-                <div class="hadith-reference">
-                    <div class="reference-title">المصدر:</div>
-                    <div>صحيح البخاري، كتاب الإيمان، باب حب الرسول صلى الله عليه وسلم من الإيمان</div>
-                </div>
-                
-                <div class="hadith-reference">
-                    <div class="reference-title">رقم الحديث:</div>
-                    <div>15</div>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span class="hadith-grade grade-sahih">صحيح</span>
-                    <button class="btn btn-primary" onclick="showExplanation(3)">
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="hadith-grade">صحيح</span>
+                    <button class="btn btn-primary" onclick="showExplanation(3, this)">
                         <i class="fas fa-lightbulb"></i> شرح الحديث
                     </button>
                 </div>
                 
-                <div class="explanation-section" id="explanation3">
-                    <h5 class="explanation-title">
-                        <i class="fas fa-book-open"></i>
-                        شرح الحديث
-                    </h5>
-                    <p>هذا الحديث يدل على أن محبة الرسول صلى الله عليه وسلم شرط من شروط الإيمان الكامل. ومحبة الرسول تكون بطاعته واتباع سنته والاقتداء به في كل شيء. وهذا الحب لا يعني إهمال حقوق الأقارب، بل يعني تقديم طاعة الرسول على هوى النفس ورغباتها.</p>
-                    <p class="mt-3"><strong>فوائد الحديث:</strong></p>
-                    <ul>
-                        <li>وجوب محبة الرسول صلى الله عليه وسلم</li>
-                        <li>أن محبة الرسول من كمال الإيمان</li>
-                        <li>تقديم محبة الرسول على محبة النفس والأهل</li>
-                        <li>أن المحبة تستلزم الطاعة والاتباع</li>
-                    </ul>
-                </div>
+                <div class="explanation-section" id="explanation3"></div>
             </div>
         </section>
 
@@ -664,8 +593,8 @@
                         <i class="fas fa-quran category-icon"></i>
                         <h4 class="category-title">مصدر التشريع</h4>
                         <p>الحديث النبوي هو المصدر الثاني للتشريع الإسلامي بعد القرآن الكريم، وهو بيان وتفصيل لما أجمله القرآن.</p>
-                        <p class="mt-3">قال تعالى: <span class="text-primary">"وأنزلنا إليك الذكر لتبين للناس ما نزل إليهم"</span> (النحل: 44)</p>
-                        <p class="mt-2">قال تعالى: <span class="text-primary">"وما آتاكم الرسول فخذوه وما نهاكم عنه فانتهوا"</span> (الحشر: 7)</p>
+                        <p class="mt-3">قال تعالى: <span style="color: #2e8b57;">"وأنزلنا إليك الذكر لتبين للناس ما نزل إليهم"</span> (النحل: 44)</p>
+                        <p class="mt-2">قال تعالى: <span style="color: #2e8b57;">"وما آتاكم الرسول فخذوه وما نهاكم عنه فانتهوا"</span> (الحشر: 7)</p>
                     </div>
                 </div>
                 
@@ -674,8 +603,8 @@
                         <i class="fas fa-sun category-icon"></i>
                         <h4 class="category-title">الاقتداء بالنبي</h4>
                         <p>الحديث النبوي هو الطريق الوحيد لمعرفة سيرة النبي صلى الله عليه وسلم وهديه وسنته العملية.</p>
-                        <p class="mt-3">قال تعالى: <span class="text-primary">"لقد كان لكم في رسول الله أسوة حسنة لمن كان يرجو الله واليوم الآخر"</span> (الأحزاب: 21)</p>
-                        <p class="mt-2">قال تعالى: <span class="text-primary">"فآمنوا بالله ورسوله النبي الأمي الذي يؤمن بالله وكلماته واتبعوه لعلكم تهتدون"</span> (الأعراف: 158)</p>
+                        <p class="mt-3">قال تعالى: <span style="color: #2e8b57;">"لقد كان لكم في رسول الله أسوة حسنة لمن كان يرجو الله واليوم الآخر"</span> (الأحزاب: 21)</p>
+                        <p class="mt-2">قال تعالى: <span style="color: #2e8b57;">"فآمنوا بالله ورسوله النبي الأمي الذي يؤمن بالله وكلماته واتبعوه لعلكم تهتدون"</span> (الأعراف: 158)</p>
                     </div>
                 </div>
                 
@@ -743,7 +672,6 @@
                         <li><a href="chanting.html"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
                         <li><a href="wedding.html"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
                         <li><a href="cypress.html"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
-                        
                     </ul>
                 </div>
                 

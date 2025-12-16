@@ -1,8 +1,8 @@
-
+// JavaScript code for wedding website
         // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // Hadith data
+        // Hadith data for daily hadith
         const hadiths = [
             {
                 text: '"من سلك طريقاً يلتمس فيه علماً سهل الله له به طريقاً إلى الجنة"',
@@ -46,7 +46,38 @@
             }
         ];
         
-        // Current search type
+        // Hadith explanations data
+        const hadithExplanations = {
+            1: {
+                text: 'هذا الحديث أصل عظيم في النيات، وهو يدل على أن الأعمال إنما تصح وتُقبل إذا كانت خالصة لوجه الله تعالى، وأن الجزاء يكون على حسب النية، فمن نوى الخير حصل على الخير، ومن نوى الشر حصل على الشر.',
+                benefits: [
+                    'بيان أهمية النية في قبول الأعمال عند الله تعالى',
+                    'الحث على الإخلاص في العمل لله وحده',
+                    'النية تحول العادات إلى عبادات',
+                    'النية الصالحة ترفع منزلة العمل وإن كان صغيراً'
+                ]
+            },
+            2: {
+                text: 'هذا الحديث قاعدة مهمة في الدين، يدل على أن كل أمر أحدث في الدين وليس له أصل في الكتاب والسنة فهو مردود على صاحبه، وأن الإسلام قد اكتمل ولا يجوز إدخال ما ليس منه فيه.',
+                benefits: [
+                    'تحريم البدع في الدين',
+                    'الحث على التمسك بالسنة والاتباع',
+                    'بيان كمال الدين الإسلامي',
+                    'التحذير من اتباع الهوى في الدين'
+                ]
+            },
+            3: {
+                text: 'هذا الحديث يدل على عظم حق النبي صلى الله عليه وسلم، وأن من كمال الإيمان أن يكون حب النبي صلى الله عليه وسلم فوق كل حب، وهذا الحب يكون باتباع سنته والاقتداء به والدفاع عن دينه.',
+                benefits: [
+                    'بيان مكانة النبي صلى الله عليه وسلم في قلوب المؤمنين',
+                    'الحث على محبة النبي صلى الله عليه وسلم أكثر من كل شيء',
+                    'محبة النبي صلى الله عليه وسلم من شروط الإيمان الكامل',
+                    'الحث على الاقتداء بالنبي صلى الله عليه وسلم في كل شيء'
+                ]
+            }
+        };
+        
+        // Current search settings
         let currentSearchType = 'all';
         let currentSearchGrade = 'all';
         let currentSearchResults = '10';
@@ -58,9 +89,6 @@
             
             // Hide loader after 2 seconds
             setTimeout(hideLoader, 2000);
-            
-            // Set up search iframe
-            setupSearchIframe();
             
             // Add scroll event listener
             window.addEventListener('scroll', handleScroll);
@@ -74,108 +102,6 @@
             const loader = document.getElementById('searchLoader');
             if (loader) {
                 loader.style.display = 'none';
-            }
-        }
-        
-        // Show loader
-        function showLoader() {
-            const loader = document.getElementById('searchLoader');
-            if (loader) {
-                loader.style.display = 'flex';
-            }
-        }
-        
-        // Setup search iframe
-        function setupSearchIframe() {
-            const iframe = document.getElementById('mainSearchFrame');
-            if (iframe) {
-                // Reload iframe every hour to prevent caching issues
-                setInterval(() => {
-                    refreshIframe();
-                }, 60 * 60 * 1000); // 60 minutes
-                
-                // Adjust iframe height
-                adjustIframeHeight();
-                
-                // Listen for iframe load
-                iframe.addEventListener('load', function() {
-                    hideLoader();
-                    adjustIframeHeight();
-                });
-            }
-        }
-        
-        // Refresh iframe
-        function refreshIframe() {
-            const iframe = document.getElementById('mainSearchFrame');
-            if (iframe) {
-                showLoader();
-                const currentSrc = iframe.src.split('?')[0];
-                const timestamp = Date.now();
-                iframe.src = `${currentSrc}?width=1600&prefill=&newwindow=no&summary=yes&t=${timestamp}`;
-            }
-        }
-        
-        // Adjust iframe height
-        function adjustIframeHeight() {
-            const iframe = document.getElementById('mainSearchFrame');
-            if (iframe) {
-                // Try to get content height
-                try {
-                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                    if (iframeDoc && iframeDoc.body) {
-                        const height = iframeDoc.body.scrollHeight;
-                        if (height > 80) {
-                            iframe.style.height = height + 'px';
-                        }
-                    }
-                } catch (e) {
-                    // Cross-origin restrictions, use default height
-                    iframe.style.height = '80px';
-                }
-            }
-        }
-        
-        // Set search type
-        function setSearchType(type) {
-            currentSearchType = type;
-            
-            // Update button states
-            document.querySelectorAll('.search-option-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-            
-            // Update iframe URL based on search type
-            updateSearchIframe();
-        }
-        
-        // Update search iframe with current settings
-        function updateSearchIframe() {
-            const iframe = document.getElementById('mainSearchFrame');
-            if (iframe) {
-                showLoader();
-                
-                let url = 'http://hdith.com/iframe.php?width=1600&prefill=&newwindow=no&summary=yes';
-                
-                // Add search type
-                if (currentSearchType !== 'all') {
-                    url += `&searchtype=${currentSearchType}`;
-                }
-                
-                
-                // Add grade filter
-                if (currentSearchGrade !== 'all') {
-                    url += `&grade=${currentSearchGrade}`;
-                }
-                
-                // Add results limit
-                url += `&results=${currentSearchResults}`;
-                
-                // Add timestamp to prevent caching
-                url += `&t=${Date.now()}`;
-                
-                iframe.src = url;
             }
         }
         
@@ -197,6 +123,27 @@
             }
         }
         
+        // Update search settings
+        function updateSearchSettings() {
+            currentSearchType = document.getElementById('bookSelect').value;
+            currentSearchGrade = document.getElementById('gradeSelect').value;
+            currentSearchResults = document.getElementById('resultsSelect').value;
+            
+            // In a real implementation, you would update the iframe URL here
+            // For now, we'll just show a notification
+            showNotification('تم تحديث إعدادات البحث', 'success');
+        }
+        
+        // Reset search settings
+        function resetSearchSettings() {
+            document.getElementById('bookSelect').value = 'all';
+            document.getElementById('gradeSelect').value = 'all';
+            document.getElementById('resultsSelect').value = '10';
+            
+            updateSearchSettings();
+            showNotification('تم إعادة تعيين جميع الإعدادات', 'success');
+        }
+        
         // Get random hadith
         function getRandomHadith() {
             const randomIndex = Math.floor(Math.random() * hadiths.length);
@@ -204,46 +151,58 @@
             
             document.getElementById('dailyHadithText').textContent = hadith.text;
             document.getElementById('dailyHadithRef').textContent = hadith.reference;
+
         }
-        
         
         // Show/hide explanation
-        function showExplanation(id) {
-            const explanation = document.getElementById('explanation' + id);
+        function showExplanation(id, btn) {
+            const box = document.getElementById("explanation" + id);
             
-            if (explanation.style.display === 'none' || explanation.style.display === '') {
-                explanation.style.display = 'block';
-                button.innerHTML = '<i class="fas fa-times"></i> إخفاء الشرح';
-            } else {
-                explanation.style.display = 'none';
-                button.innerHTML = '<i class="fas fa-lightbulb"></i> شرح الحديث';
+            if (box.style.display === "block") {
+                box.style.display = "none";
+                btn.innerHTML = '<i class="fas fa-lightbulb"></i> شرح الحديث';
+                return;
             }
-        }
-        
-        
-        // Search in specific book
-        
-        // Get book name
-        function getBookName(bookCode) {
-            const books = {
-                'bukhari': 'صحيح البخاري',
-                'muslim': 'صحيح مسلم',
-                'abudawud': 'سنن أبي داود',
-                'tirmidhi': 'جامع الترمذي',
-                'nasai': 'سنن النسائي',
-                'ibnmajah': 'سنن ابن ماجه'
-            };
-            return books[bookCode] || 'الكتاب المحدد';
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> تحميل...';
+            
+            // Use setTimeout to simulate loading
+            setTimeout(() => {
+                const h = hadithExplanations[id];
+                if (h) {
+                    box.innerHTML = `
+                        <h5 class="explanation-title">
+                            <i class="fas fa-book-open"></i> شرح الحديث
+                        </h5>
+                        <p>${h.text}</p>
+                        <strong>فوائد الحديث:</strong>
+                        <ul>
+                            ${h.benefits.map(b => `<li>${b}</li>`).join("")}
+                        </ul>
+                    `;
+                } else {
+                    box.innerHTML = "لم يتم العثور على شرح لهذا الحديث";
+                }
+                box.style.display = "block";
+                btn.innerHTML = '<i class="fas fa-times"></i> إخفاء الشرح';
+            }, 500);
         }
         
         // Show notification
         function showNotification(message, type = 'success') {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector('.notification-alert');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
             const notification = document.createElement('div');
-            notification.className = `position-fixed bottom-0 start-0 m-4 p-3 rounded shadow-lg`;
-            notification.style.backgroundColor = type === 'success' ? 'var(--primary-green)' : '#dc3545';
+            notification.className = `notification-alert position-fixed top-0 start-0 m-4 p-3 rounded shadow-lg`;
+            notification.style.backgroundColor = type === 'success' ? '#2e8b57' : '#dc3545';
             notification.style.color = 'white';
             notification.style.zIndex = '9999';
             notification.style.maxWidth = '300px';
+            notification.style.borderRadius = '10px';
             notification.style.transition = 'transform 0.3s ease';
             notification.innerHTML = `
                 <div class="d-flex align-items-center">
@@ -254,11 +213,18 @@
             
             document.body.appendChild(notification);
             
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateY(20px)';
+            }, 10);
+            
             // Remove after 3 seconds
             setTimeout(() => {
-                notification.style.transform = 'translateX(-100%)';
+                notification.style.transform = 'translateY(-100%)';
                 setTimeout(() => {
-                    document.body.removeChild(notification);
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
                 }, 300);
             }, 3000);
         }
@@ -309,6 +275,3 @@
         
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', initializePage);
-        
-        // Adjust iframe on window resize
-        window.addEventListener('resize', adjustIframeHeight);
