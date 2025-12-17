@@ -15,6 +15,99 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
      <link rel="stylesheet" href="/css/style_wedding.css">
+    <style>
+        /* تحسينات إضافية لصور الكتب */
+        .book-header img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            transition: transform 0.5s ease;
+        }
+        
+        .book-card:hover .book-header img {
+            transform: scale(1.05);
+        }
+        
+        .book-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .book-header {
+            overflow: hidden;
+            position: relative;
+            height: 220px;
+        }
+        
+        .book-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-title {
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        
+        .book-author {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .book-body p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .book-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-weight: 700;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .book-header img {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -101,7 +194,7 @@
                         
                         <!-- The main search iframe -->
                         <iframe 
-                            src="http://hdith.com/iframe.php?width=100%&prefill=&newwindow=yes&summary=no" 
+                            src="http://hdith.com/iframe.php?width=1000%&prefill=&newwindow=yes&summary=no" 
                             style="width:100%; height:80px; border:none;" 
                             frameborder="0" 
                             id="mainSearchFrame"
@@ -119,7 +212,7 @@
                         <div class="col-md-4">
                             <div class="advanced-option">
                                 <label>حدد الكتاب:</label>
-                                <select class="form-select form-select-sm" id="bookSelect" onchange="updateSearchSettings()">
+                                <select class="form-select form-select-sm" id="bookSelect" >
                                     <option value="all">جميع الكتب</option>
                                     <option value="bukhari">صحيح البخاري</option>
                                     <option value="muslim">صحيح مسلم</option>
@@ -134,7 +227,7 @@
                         <div class="col-md-4">
                             <div class="advanced-option">
                                 <label>درجة الحديث:</label>
-                                <select class="form-select form-select-sm" id="gradeSelect" onchange="updateSearchSettings()">
+                                <select class="form-select form-select-sm" >
                                     <option value="all">جميع الدرجات</option>
                                     <option value="sahih">صحيح فقط</option>
                                     <option value="hasan">حسن فقط</option>
@@ -143,24 +236,8 @@
                             </div>
                         </div>
                         
-                        <div class="col-md-4">
-                            <div class="advanced-option">
-                                <label>عدد النتائج:</label>
-                                <select class="form-select form-select-sm" id="resultsSelect" onchange="updateSearchSettings()">
-                                    <option value="10">10 نتائج</option>
-                                    <option value="20">20 نتيجة</option>
-                                    <option value="50">50 نتيجة</option>
-                                    <option value="100">100 نتيجة</option>
-                                </select>
-                            </div>
-                        </div>
                     </div>
-                    
-                    <div class="text-center mt-3">
-                        <button class="btn btn-sm btn-primary" onclick="resetSearchSettings()">
-                            <i class="fas fa-redo me-1"></i> إعادة التعيين
-                        </button>
-                    </div>
+
                 </div>
                 
                 <!-- Statistics -->
@@ -330,12 +407,11 @@
         <section class="mb-5">
             <h2 class="section-title center">كتب الحديث المعتمدة</h2>
             <div class="row">
-                <!-- Book 1 -->
+                <!-- Book 1: صحيح البخاري -->
                 <div class="col-md-4 mb-4">
                     <div class="book-card">
                         <div class="book-header">
-                            <i class="fas fa-book book-icon"></i>
-                            <h3>صحيح البخاري</h3>
+                            <img src="/assets/Sahih al-Bukhari.jpg" alt="Sahih al-Bukhari">
                         </div>
                         <div class="book-body">
                             <h4 class="book-title">الجامع الصحيح</h4>
@@ -359,12 +435,11 @@
                     </div>
                 </div>
                 
-                <!-- Book 2 -->
+                <!-- Book 2: صحيح مسلم -->
                 <div class="col-md-4 mb-4">
                     <div class="book-card">
                         <div class="book-header">
-                            <i class="fas fa-book book-icon"></i>
-                            <h3>صحيح مسلم</h3>
+                            <img src="/assets/Sahih-Muslim.jpg" alt="Sahih Muslim">
                         </div>
                         <div class="book-body">
                             <h4 class="book-title">المسند الصحيح</h4>
@@ -388,12 +463,11 @@
                     </div>
                 </div>
                 
-                <!-- Book 3 -->
+                <!-- Book 3: سنن أبي داود -->
                 <div class="col-md-4 mb-4">
                     <div class="book-card">
                         <div class="book-header">
-                            <i class="fas fa-book book-icon"></i>
-                            <h3>سنن أبي داود</h3>
+                            <img src="/assets/Sunan-Abu-Dawud.jpg" alt="Sunan Abu Dawud">
                         </div>
                         <div class="book-body">
                             <h4 class="book-title">السنن</h4>
@@ -417,12 +491,11 @@
                     </div>
                 </div>
                 
-                <!-- Book 4 -->
+                <!-- Book 4: جامع الترمذي -->
                 <div class="col-md-4 mb-4">
                     <div class="book-card">
                         <div class="book-header">
-                            <i class="fas fa-book book-icon"></i>
-                            <h3>جامع الترمذي</h3>
+                            <img src="/assets/Jami-al-Tirmidhi.jpg" alt="Jami al-Tirmidhi">
                         </div>
                         <div class="book-body">
                             <h4 class="book-title">الجامع الكبير</h4>
@@ -446,12 +519,11 @@
                     </div>
                 </div>
                 
-                <!-- Book 5 -->
+                <!-- Book 5: سنن النسائي -->
                 <div class="col-md-4 mb-4">
                     <div class="book-card">
                         <div class="book-header">
-                            <i class="fas fa-book book-icon"></i>
-                            <h3>سنن النسائي</h3>
+                            <img src="/assets/Sunan-al-Nasai.jpg" alt="Sunan al-Nasai">
                         </div>
                         <div class="book-body">
                             <h4 class="book-title">المجتبى</h4>
@@ -475,12 +547,11 @@
                     </div>
                 </div>
                 
-                <!-- Book 6 -->
+                <!-- Book 6: سنن ابن ماجه -->
                 <div class="col-md-4 mb-4">
                     <div class="book-card">
                         <div class="book-header">
-                            <i class="fas fa-book book-icon"></i>
-                            <h3>سنن ابن ماجه</h3>
+                            <img src="/assets/Sunan-Ibn-Majah.jpg" alt="Sunan Ibn Majah">
                         </div>
                         <div class="book-body">
                             <h4 class="book-title">السنن</h4>

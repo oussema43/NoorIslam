@@ -71,23 +71,6 @@
                 loader.style.display = 'none';
             }
         }
-
-        // Update search settings
-        function updateSearchSettings() {
-            currentSearchType = document.getElementById('bookSelect').value;
-            currentSearchGrade = document.getElementById('gradeSelect').value;
-            currentSearchResults = document.getElementById('resultsSelect').value;
-            
-        }
-        
-        // Reset search settings
-        function resetSearchSettings() {
-            document.getElementById('bookSelect').value = 'all';
-            document.getElementById('gradeSelect').value = 'all';
-            document.getElementById('resultsSelect').value = '10';
-            
-            updateSearchSettings();
-        }
         
         // Get random hadith
         function getRandomHadith() {
