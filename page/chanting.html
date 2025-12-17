@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="القرآن الكريم - استمع وتلاوة وتدبر آيات الذكر الحكيم">
+    <title>نور الإسلام 🕌</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/mosque.ico" type="image/svg+xml">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style_chanting.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#" aria-label="الرئيسية - نور الإسلام">
+                <i class="fas fa-mosque"></i>
+                نور الإسلام
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل القائمة">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html" aria-current="page">
+                            <i class="fas fa-home"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/page/prayer.html">
+                            <i class="fas fa-pray"></i>
+                            الصلاة
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/page/chanting.html">
+                            <i class="fas fa-book-quran"></i>
+                            القرآن الكريم
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/page/wedding.html">
+                            <i class="fas fa-book-open"></i>
+                            الحديث الشريف
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/page/cypress.html">
+                            <i class="fas fa-dharmachakra"></i>
+                            الأذكار
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <a href="/page/login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        تسجيل الدخول
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tajweed Detail Page (Hidden by default) -->
+    <div class="tajweed-detail-page" id="tajweedDetailPage">
+        <div class="tajweed-header">
+            <div class="tajweed-header-content">
+                <button class="back-button" onclick="closeTajweedDetail()">
+                    <i class="fas fa-arrow-right"></i> العودة
+                </button>
+                <h1 class="tajweed-title" id="tajweedPageTitle">
+                    <i class="fas fa-microphone"></i>
+                    أحكام التجويد
+                </h1>
+                <p class="tajweed-subtitle" id="tajweedPageSubtitle">
+                    تعلم قواعد التجويد وتطبيقها في تلاوة القرآن الكريم
+                </p>
+            </div>
+        </div>
+        
+        <div class="tajweed-content" id="tajweedPageContent">
+            <!-- Content will be loaded here dynamically -->
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5" id="mainContent">
+        <!-- Hero Section -->
+        <section class="quran-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="quran-hero-title">القرآن الكريم</h1>
+                        <p class="quran-hero-subtitle">"كِتَابٌ أَنزَلْنَاهُ إِلَيْكَ مُبَارَكٌ لِّيَدَّبَّرُوا آيَاتِهِ وَلِيَتَذَكَّرَ أُولُو الْأَلْبَابِ"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quran Verse -->
+        <section class="verse-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="section-title center">آية اليوم</h3>
+                        <div class="position-relative">
+                            <p class="verse-arabic" id="dailyVerse">﴿وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ﴾</p>
+                            <p class="verse-translation" id="dailyTranslation">"وإذا سألك عبادي عني فإني قريب أجيب دعوة الداع إذا دعان" (البقرة: 186)</p>
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary" onclick="getRandomVerse()">
+                                    <i class="fas fa-random"></i> آية عشوائية
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tajweed Rules -->
+        <section class="my-5">
+            <h2 class="section-title center">قواعد التجويد</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="tajweed-card" data-tajweed-type="noon">
+                        <i class="fas fa-microphone tajweed-icon"></i>
+                        <h4>أحكام النون الساكنة والتنوين</h4>
+                        <p>الإظهار، الإدغام، الإقلاب، الإخفاء مع أمثلة تطبيقية من القرآن الكريم.</p>
+                        <div class="mt-3">
+                            <button class="read-more-btn" onclick="loadTajweedData('noon')">
+                                <i class="fas fa-book-open"></i> اقرأ المزيد
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="tajweed-card" data-tajweed-type="meem">
+                        <i class="fas fa-volume-up tajweed-icon"></i>
+                        <h4>أحكام الميم الساكنة</h4>
+                        <p>الإخفاء الشفوي، الإدغام الشفوي، الإظهار الشفوي مع التطبيقات العملية.</p>
+                        <div class="mt-3">
+                            <button class="read-more-btn" onclick="loadTajweedData('meem')">
+                                <i class="fas fa-book-open"></i> اقرأ المزيد
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="tajweed-card" data-tajweed-type="madd">
+                        <i class="fas fa-book tajweed-icon"></i>
+                        <h4>أحكام المدود</h4>
+                        <p>المد الطبيعي، المد المنفصل، المد المتصل، المد اللازم مع أمثلة قرآنية.</p>
+                        <div class="mt-3">
+                            <button class="read-more-btn" onclick="loadTajweedData('madd')">
+                                <i class="fas fa-book-open"></i> اقرأ المزيد
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="tajweed-card" data-tajweed-type="letters">
+                        <i class="fas fa-language tajweed-icon"></i>
+                        <h4>صفات الحروف</h4>
+                        <p>الصفات اللازمة والعارضة للحروف العربية وتطبيقها في تلاوة القرآن.</p>
+                        <div class="mt-3">
+                            <button class="read-more-btn" onclick="loadTajweedData('letters')">
+                                <i class="fas fa-book-open"></i> اقرأ المزيد
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AJAX Content Container -->
+        <div id="ajaxContentContainer"></div>
+
+        <!-- Memorization Tips -->
+        <section class="my-5">
+            <h2 class="section-title center">نصائح لحفظ القرآن</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="memorization-card">
+                        <i class="fas fa-brain memorization-icon"></i>
+                        <h4>التكرار والمراجعة</h4>
+                        <p>تكرار الآيات ومراجعتها باستمرار هو أساس تثبيت الحفظ.</p>
+                        <ul class="mt-3">
+                            <li>كرر الآية 7 مرات</li>
+                            <li>راجع المحفوظ يومياً</li>
+                            <li>استخدم نظام المراجعة الدورية</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="memorization-card">
+                        <i class="fas fa-clock memorization-icon"></i>
+                        <h4>الوقت المناسب</h4>
+                        <p>اختر الأوقات المناسبة للحفظ حيث يكون الذهن صافياً.</p>
+                        <ul class="mt-3">
+                            <li>بعد صلاة الفجر</li>
+                            <li>قبل النوم</li>
+                            <li>أوقات السحر</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="memorization-card">
+                        <i class="fas fa-users memorization-icon"></i>
+                        <h4>الحفظ مع الأصحاب</h4>
+                        <p>الحفظ في جماعة يحفز ويقوي الذاكرة.</p>
+                        <ul class="mt-3">
+                            <li>مجموعات الحفظ</li>
+                            <li>التسميع المتبادل</li>
+                            <li>المسابقات التحفيزية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities -->
+        <section class="my-5">
+            <h2 class="section-title">آخر الأنشطة</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="activity-card d-flex align-items-center">
+                        <div class="activity-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div>
+                            <h5>قراءة سورة البقرة</h5>
+                            <p class="text-muted mb-0">أنهيت 50 آية من السورة</p>
+                            <small class="text-muted">منذ ساعتين</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="activity-card d-flex align-items-center">
+                        <div class="activity-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div>
+                            <h5>إضافة آية للمفضلة</h5>
+                            <p class="text-muted mb-0">"ربنا آتنا في الدنيا حسنة"</p>
+                            <small class="text-muted">منذ يومين</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="activity-card d-flex align-items-center">
+                        <div class="activity-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h5>تعلم أحكام المدود</h5>
+                            <p class="text-muted mb-0">أكملت درس التجويد</p>
+                            <small class="text-muted">منذ 3 أيام</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="activity-card d-flex align-items-center">
+                        <div class="activity-icon">
+                            <i class="fas fa-bookmark"></i>
+                        </div>
+                        <div>
+                            <h5>وضع علامة على آية</h5>
+                            <p class="text-muted mb-0">آية الكرسي - سورة البقرة</p>
+                            <small class="text-muted">منذ أسبوع</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits of Quran -->
+        <section class="my-5">
+            <h2 class="section-title center">فضائل القرآن الكريم</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt benefit-icon"></i>
+                        <h5>حفظ من الشيطان</h5>
+                        <p>"إن البيت الذي يقرأ فيه القرآن يتسع بأهله ويكثر خيره"</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="benefit-card">
+                        <i class="fas fa-heart benefit-icon"></i>
+                        <h5>طمأنينة القلب</h5>
+                        <p>"الذين آمنوا وتطمئن قلوبهم بذكر الله ألا بذكر الله تطمئن القلوب"</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="benefit-card">
+                        <i class="fas fa-star benefit-icon"></i>
+                        <h5>رفعة الدرجات</h5>
+                        <p>"يقال لقارئ القرآن: اقرأ وارتق ورتل كما كنت ترتل في الدنيا"</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="benefit-card">
+                        <i class="fas fa-hands-helping benefit-icon"></i>
+                        <h5>شفاعة يوم القيامة</h5>
+                        <p>"يأتي القرآن يوم القيامة شفيعاً لأصحابه"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Surah Detail Modal -->
+    <div class="surah-detail-modal" id="surahModal">
+        <div class="surah-modal-content">
+            <div class="close-modal" onclick="closeSurahModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="section-title" id="surahModalTitle">سورة الفاتحة</h2>
+            <div id="surahContent">
+                <!-- Ayahs will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About -->
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <div class="footer-logo d-flex align-items-center gap-2">
+                        <i class="fas fa-mosque"></i>
+                        <h3>نور الإسلام</h3>
+                    </div>
+
+                    <p class="footer-description">
+                        منصة إسلامية شاملة تهدف إلى تقديم العلم النافع والمعرفة الصحيحة وفق القرآن الكريم والسنة النبوية الصحيحة.
+                        نقدم خدمات تعليمية وروحية لجميع المسلمين حول العالم.
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon-footer" aria-label="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon-footer" aria-label="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <h4 class="footer-title">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الرئيسية</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الصلاة</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> القرآن الكريم</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الحديث الشريف</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> الأذكار</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <h4 class="footer-title">تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-details">
+                                <p>info@islamicguide.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-details">
+                                <p>+966 12 345 6789</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-details">
+                                <p>مكة المكرمة، المملكة العربية السعودية</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-8 text-center">
+                    <div class="copyright">
+                        <p>© <span id="currentYear"></span> نور الإسلام. جميع الحقوق محفوظة.</p>
+                        <p class="footer-quran">
+                            "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ" (هود: 88)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="العودة إلى الأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script_chanting.js"></script>
+</body>
+</html>

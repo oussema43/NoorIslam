@@ -1,44 +1,4 @@
-// script_chanting.js
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // Quran data
-        const surahs = [
-            { number: 1, name: "الفاتحة", ayahs: 7, revelation: "مكية" },
-            { number: 2, name: "البقرة", ayahs: 286, revelation: "مدنية" },
-            { number: 3, name: "آل عمران", ayahs: 200, revelation: "مدنية" },
-            { number: 4, name: "النساء", ayahs: 176, revelation: "مدنية" },
-            { number: 5, name: "المائدة", ayahs: 120, revelation: "مدنية" },
-            { number: 6, name: "الأنعام", ayahs: 165, revelation: "مكية" },
-            { number: 7, name: "الأعراف", ayahs: 206, revelation: "مكية" },
-            { number: 8, name: "الأنفال", ayahs: 75, revelation: "مدنية" },
-            { number: 9, name: "التوبة", ayahs: 129, revelation: "مدنية" },
-            { number: 10, name: "يونس", ayahs: 109, revelation: "مكية" },
-            { number: 36, name: "يس", ayahs: 83, revelation: "مكية" },
-            { number: 55, name: "الرحمن", ayahs: 78, revelation: "مكية" },
-            { number: 67, name: "الملك", ayahs: 30, revelation: "مكية" },
-            { number: 112, name: "الإخلاص", ayahs: 4, revelation: "مكية" }
-        ];
-        
-        // Sample ayahs for demonstration
-        const sampleAyahs = {
-            1: [
-                { number: 1, text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", translation: "بسم الله الرحمن الرحيم" },
-                { number: 2, text: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ", translation: "الحمد لله رب العالمين" },
-                { number: 3, text: "الرَّحْمَٰنِ الرَّحِيمِ", translation: "الرحمن الرحيم" },
-                { number: 4, text: "مَالِكِ يَوْمِ الدِّينِ", translation: "مالك يوم الدين" },
-                { number: 5, text: "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ", translation: "إياك نعبد وإياك نستعين" },
-                { number: 6, text: "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ", translation: "اهدنا الصراط المستقيم" },
-                { number: 7, text: "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ", translation: "صراط الذين أنعمت عليهم غير المغضوب عليهم ولا الضالين" }
-            ],
-            112: [
-                { number: 1, text: "قُلْ هُوَ اللَّهُ أَحَدٌ", translation: "قل هو الله أحد" },
-                { number: 2, text: "اللَّهُ الصَّمَدُ", translation: "الله الصمد" },
-                { number: 3, text: "لَمْ يَلِدْ وَلَمْ يُولَدْ", translation: "لم يلد ولم يولد" },
-                { number: 4, text: "وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ", translation: "ولم يكن له كفواً أحد" }
-            ]
-        };
-        
+
         // Sample verses for daily verse
         const verses = [
             { text: "﴿وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ﴾", translation: "وإذا سألك عبادي عني فإني قريب أجيب دعوة الداع إذا دعان", reference: "البقرة: 186" },
@@ -46,409 +6,424 @@
             { text: "﴿وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا﴾", translation: "ومن يتق الله يجعل له مخرجاً", reference: "الطلاق: 2" },
             { text: "﴿وَتَوَكَّلْ عَلَى الْحَيِّ الَّذِي لَا يَمُوتُ﴾", translation: "وتوكل على الحي الذي لا يموت", reference: "الفرقان: 58" },
             { text: "﴿فَإِنَّ مَعَ الْعُسْرِ يُسْرًا * إِنَّ مَعَ الْعُسْرِ يُسْرًا﴾", translation: "فإن مع العسر يسراً * إن مع العسر يسراً", reference: "الشرح: 5-6" },
-            { text: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ﴾", translation: "يا أيها الذين آمنوا اصبروا وصابروا ورابطوا واتقوا الله لعلكم تفلحون", reference: "آل عمران: 200" }
+            { text: "﴿يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا وَرَابِطُوا وَاتَّقُوا اللَّهَ لَعَلَّكُمْ تُفْلِحُونَ﴾", translation: "يا أيها الذين آمنوا اصبروا وصابروا ورابطوا واتقوا الله لعلكم تفلحون", reference: "آل عمران: 200" },
+            { text: "﴿رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ﴾", translation: "ربنا آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار", reference: "البقرة: 201" },
+            { text: "﴿إِنَّ اللَّهَ مَعَ الصَّابِرِينَ﴾", translation: "إن الله مع الصابرين", reference: "البقرة: 153" },
+            { text: "﴿قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ * لَمْ يَلِدْ وَلَمْ يُولَدْ * وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ﴾", translation: "قل هو الله أحد * الله الصمد * لم يلد ولم يولد * ولم يكن له كفوا أحد", reference: "الإخلاص: 1-4" },
+            { text: "﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ * الرَّحْمَٰنِ الرَّحِيمِ * مَالِكِ يَوْمِ الدِّينِ﴾", translation: "الحمد لله رب العالمين * الرحمن الرحيم * مالك يوم الدين", reference: "الفاتحة: 1-3" }
         ];
-        
-        // Initialize surah list
-        function initializeSurahList() {
-            const surahListContainer = document.getElementById('surahList');
-            surahListContainer.innerHTML = '';
-            
-            surahs.forEach(surah => {
-                const col = document.createElement('div');
-                col.className = 'col-md-6 col-lg-4 mb-3';
-                col.innerHTML = `
-                    <div class="surah-card" onclick="openSurahModal(${surah.number})">
-                        <div class="surah-number">${surah.number}</div>
-                        <div class="surah-content">
-                            <h4 class="surah-name">${surah.name}</h4>
-                            <div class="surah-details">
-                                <span>${surah.ayahs} آية</span>
-                                <span>${surah.revelation}</span>
-                            </div>
+
+        // Tajweed data structure
+        const tajweedData = {
+            noon: {
+                title: "أحكام النون الساكنة والتنوين",
+                subtitle: "تعلم قواعد النون الساكنة والتنوين وتطبيقها في تلاوة القرآن الكريم",
+                content: `
+                    <div class="rule-section">
+                        <h3 class="rule-title"><i class="fas fa-book-open"></i> أحكام النون الساكنة والتنوين</h3>
+                        <p>توجد أربعة أحكام للنون الساكنة والتنوين في علم التجويد:</p>
+                        
+                        <div class="example-box">
+                            <h4>1. الإظهار الحلقي</h4>
+                            <div class="example-arabic">مَنْ آمَنَ - مِنْ هَادٍ</div>
+                            <p>الإظهار: إخراج النون الساكنة أو التنوين من مخرجهما من غير غنة، ويأتي عند حروف الحلق الستة:</p>
+                            <ul>
+                                <li>ء (الهمزة) - مثال: مِنْ ءَالَاءِ</li>
+                                <li>هـ - مثال: مِنْ هَادٍ</li>
+                                <li>ع - مثال: مِنْ عِلْمٍ</li>
+                                <li>ح - مثال: مِنْ حَكِيمٍ</li>
+                                <li>غ - مثال: مِنْ غَفُورٍ</li>
+                                <li>خ - مثال: مِنْ خَبِيرٍ</li>
+                            </ul>
                         </div>
                     </div>
-                `;
-                surahListContainer.appendChild(col);
-            });
-        }
-        
-        // Open surah modal
-        function openSurahModal(surahNumber) {
-            const surah = surahs.find(s => s.number === surahNumber);
-            if (!surah) return;
-            
-            document.getElementById('surahModalTitle').textContent = `سورة ${surah.name}`;
-            
-            const surahContent = document.getElementById('surahContent');
-            surahContent.innerHTML = '';
-            
-            // Add surah info
-            const infoDiv = document.createElement('div');
-            infoDiv.className = 'alert alert-info mb-4';
-            infoDiv.innerHTML = `
-                <div class="row">
-                    <div class="col-md-4"><strong>عدد الآيات:</strong> ${surah.ayahs}</div>
-                    <div class="col-md-4"><strong>نوع السورة:</strong> ${surah.revelation}</div>
-                    <div class="col-md-4"><strong>رقم السورة:</strong> ${surah.number}</div>
-                </div>
-            `;
-            surahContent.appendChild(infoDiv);
-            
-            // Add ayahs
-            const ayahs = sampleAyahs[surah.number] || sampleAyahs[112];
-            
-            ayahs.forEach(ayah => {
-                const ayahDiv = document.createElement('div');
-                ayahDiv.className = 'ayah-container';
-                ayahDiv.innerHTML = `
-                    <span class="ayah-number">${ayah.number}</span>
-                    <div class="ayah-text">${ayah.text}</div>
-                    <div class="ayah-translation">${ayah.translation}</div>
-                `;
-                surahContent.appendChild(ayahDiv);
-            });
-            
-            // Add tafsir section if available
-            if (surah.number === 1) {
-                const tafsirDiv = document.createElement('div');
-                tafsirDiv.className = 'tafsir-section';
-                tafsirDiv.innerHTML = `
-                    <h5 class="tafsir-title"><i class="fas fa-book"></i> تفسير مختصر</h5>
-                    <p>سورة الفاتحة هي أول سورة في القرآن الكريم، وتسمى أم الكتاب لأنها تشمل مقاصد القرآن الأساسية. تتناول السورة التوحيد والعبادة والاستعانة بالله وطلب الهداية إلى الصراط المستقيم.</p>
-                `;
-                surahContent.appendChild(tafsirDiv);
-            }
-            
-            // Show modal
-            document.getElementById('surahModal').classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Close surah modal
-        function closeSurahModal() {
-            document.getElementById('surahModal').classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-        
-        // Quran player functionality
-        let isPlaying = false;
-        let currentAudio = null;
-        let currentSurah = 1;
-        let currentReciter = 'mishari';
-        
-        const audioFiles = {
-            mishari: {
-                1: 'https://download.quranicaudio.com/quran/mishari_al_afasy/murattal/1.mp3',
-                112: 'https://download.quranicaudio.com/quran/mishari_al_afasy/murattal/112.mp3'
+                `
             },
-            hudhaifi: {
-                1: 'https://download.quranicaudio.com/quran/ali_alhuthaifee/1.mp3',
-                112: 'https://download.quranicaudio.com/quran/ali_alhuthaifee/112.mp3'
+            meem: {
+                title: "أحكام الميم الساكنة",
+                subtitle: "تعلم قواعد الميم الساكنة وتطبيقها في تلاوة القرآن الكريم",
+                content: `
+                    <div class="rule-section">
+                        <h3 class="rule-title"><i class="fas fa-volume-up"></i> أحكام الميم الساكنة</h3>
+                        <p>توجد ثلاثة أحكام للميم الساكنة في علم التجويد:</p>
+                        
+                        <div class="example-box">
+                            <h4>1. الإخفاء الشفوي</h4>
+                            <div class="example-arabic">لَهُم بَيْنَهُمْ - تَرْمِيهِم بِحِجَارَةٍ</div>
+                            <p>الإخفاء الشفوي: إخفاء الميم الساكنة عند حرف الباء مع الغنة</p>
+                        </div>
+                    </div>
+                `
+            },
+            madd: {
+                title: "أحكام المدود",
+                subtitle: "تعلم قواعد المدود وأنواعها في تلاوة القرآن الكريم",
+                content: `
+                    <div class="rule-section">
+                        <h3 class="rule-title"><i class="fas fa-book"></i> أحكام المدود</h3>
+                        <p>المد: إطالة الصوت بحرف من حروف المد (الألف الساكنة المفتوح ما قبلها، الواو الساكنة المضموم ما قبلها، الياء الساكنة المكسور ما قبلها)</p>
+                        
+                        <div class="example-box">
+                            <h4>1. المد الطبيعي (الأصلي)</h4>
+                            <div class="example-arabic">قَالَ - نُوحٍ - رَحِيمٌ</div>
+                            <p>المد الطبيعي: مد بمقدار حركتين (حوالي ثانية واحدة) عند وجود حرف مد</p>
+                        </div>
+                    </div>
+                `
+            },
+            letters: {
+                title: "صفات الحروف",
+                subtitle: "تعلم صفات الحروف العربية وتطبيقها في تلاوة القرآن الكريم",
+                content: `
+                    <div class="rule-section">
+                        <h3 class="rule-title"><i class="fas fa-language"></i> صفات الحروف العربية</h3>
+                        <p>تنقسم صفات الحروف إلى قسمين: الصفات اللازمة والصفات العارضة</p>
+                        
+                        <div class="example-box">
+                            <h4>1. الصفات اللازمة</h4>
+                            <p>هي الصفات التي لا تفارق الحرف وهي 17 صفة:</p>
+                        </div>
+                    </div>
+                `
             }
         };
-        
-        function togglePlay() {
-            const playBtn = document.getElementById('playBtn');
-            const icon = playBtn.querySelector('i');
+
+        // Application state
+        let currentUser = null;
+        let favorites = [];
+        let bookmarks = [];
+        let readingProgress = {
+            daily: 20,
+            monthly: 50,
+            total: 75
+        };
+
+        // Initialize page
+        function initializePage() {
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            if (isPlaying) {
-                pauseAudio();
-                icon.className = 'fas fa-play';
-            } else {
-                playAudio();
-                icon.className = 'fas fa-pause';
-            }
+            // Set random verse as daily verse
+            getRandomVerse();
             
-            isPlaying = !isPlaying;
+            // Load user data
+            loadUserData();
+            
+            // Setup event listeners
+            setupEventListeners();
+            
+            // Setup scroll effects
+            setupScrollEffects();
+            
+            // Update progress circles
+            updateProgressCircles();
+            
+            // Initialize UI
+            updateFavoritesDisplay();
+            updateActivities();
         }
-        
-        function playAudio() {
-            if (currentAudio) {
-                currentAudio.pause();
+
+        // Load user data from localStorage
+        function loadUserData() {
+            const savedUser = localStorage.getItem('quranUser');
+            const savedFavorites = localStorage.getItem('quranFavorites');
+            const savedBookmarks = localStorage.getItem('quranBookmarks');
+            
+            if (savedUser) currentUser = JSON.parse(savedUser);
+            if (savedFavorites) favorites = JSON.parse(savedFavorites);
+            if (savedBookmarks) bookmarks = JSON.parse(savedBookmarks);
+        }
+
+        // Save user data to localStorage
+        function saveUserData() {
+            localStorage.setItem('quranFavorites', JSON.stringify(favorites));
+            localStorage.setItem('quranBookmarks', JSON.stringify(bookmarks));
+            if (currentUser) {
+                localStorage.setItem('quranUser', JSON.stringify(currentUser));
             }
-            
-            const audioUrl = audioFiles[currentReciter]?.[currentSurah] || audioFiles.mishari[1];
-            currentAudio = new Audio(audioUrl);
-            
-            currentAudio.addEventListener('loadedmetadata', function() {
-                document.getElementById('duration').textContent = formatTime(currentAudio.duration);
+        }
+
+        // Setup scroll effects
+        function setupScrollEffects() {
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Back to top button visibility
+                const backToTop = document.getElementById('backToTop');
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
             });
             
-            currentAudio.addEventListener('timeupdate', function() {
-                const progress = (currentAudio.currentTime / currentAudio.duration) * 100;
-                document.getElementById('progress').style.width = `${progress}%`;
-                document.getElementById('currentTime').textContent = formatTime(currentAudio.currentTime);
-            });
-            
-            currentAudio.addEventListener('ended', function() {
-                isPlaying = false;
-                document.getElementById('playBtn').querySelector('i').className = 'fas fa-play';
-                document.getElementById('progress').style.width = '0%';
-                document.getElementById('currentTime').textContent = '00:00';
-            });
-            
-            currentAudio.volume = document.getElementById('volume').value / 100;
-            currentAudio.play();
+            // Trigger scroll event on load
+            window.dispatchEvent(new Event('scroll'));
         }
-        
-        function pauseAudio() {
-            if (currentAudio) {
-                currentAudio.pause();
-            }
-        }
-        
-        function changeReciter() {
-            const select = document.getElementById('reciterSelect');
-            currentReciter = select.value;
-            
-            const reciterNames = {
-                mishari: 'مشاري العفاسي',
-                hudhaifi: 'علي بن عبد الرحمن الحذيفي',
-                sudais: 'عبد الرحمن السديس',
-                shuraim: 'سعود الشريم',
-                maher: 'ماهر المعيقلي',
-                basfar: 'أبو بكر الشاطري'
-            };
-            
-            document.getElementById('currentReciter').textContent = reciterNames[currentReciter] || 'مشاري العفاسي';
-            
-            if (isPlaying) {
-                pauseAudio();
-                playAudio();
-            }
-        }
-        
-        function selectReciter(reciter) {
-            document.getElementById('reciterSelect').value = reciter;
-            changeReciter();
-        }
-        
-        function changeSurah() {
-            const select = document.getElementById('surahSelect');
-            currentSurah = parseInt(select.value);
-            
-            const surahNames = {
-                1: 'الفاتحة',
-                2: 'البقرة',
-                36: 'يس',
-                55: 'الرحمن',
-                67: 'الملك',
-                112: 'الإخلاص'
-            };
-            
-            document.querySelector('.player-title').textContent = `سورة ${surahNames[currentSurah] || 'الفاتحة'}`;
-            
-            if (isPlaying) {
-                pauseAudio();
-                playAudio();
-            }
-        }
-        
-        function previousSurah() {
-            const select = document.getElementById('surahSelect');
-            const currentIndex = Array.from(select.options).findIndex(option => option.value == currentSurah);
-            const prevIndex = currentIndex > 0 ? currentIndex - 1 : select.options.length - 1;
-            
-            select.value = select.options[prevIndex].value;
-            changeSurah();
-        }
-        
-        function nextSurah() {
-            const select = document.getElementById('surahSelect');
-            const currentIndex = Array.from(select.options).findIndex(option => option.value == currentSurah);
-            const nextIndex = currentIndex < select.options.length - 1 ? currentIndex + 1 : 0;
-            
-            select.value = select.options[nextIndex].value;
-            changeSurah();
-        }
-        
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-        
-        // Volume control
-        document.getElementById('volume').addEventListener('input', function() {
-            if (currentAudio) {
-                currentAudio.volume = this.value / 100;
-            }
-        });
-        
-        // Search Quran
-        function searchQuran() {
-            const searchInput = document.getElementById('searchInput').value.trim();
-            const resultsContainer = document.getElementById('searchResults');
-            
-            if (!searchInput) {
-                resultsContainer.innerHTML = '<div class="alert alert-warning">الرجاء إدخال كلمة للبحث</div>';
-                return;
-            }
-            
-            // Sample search results
-            const sampleResults = [
-                { surah: "البقرة", ayah: 255, text: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ", translation: "آية الكرسي" },
-                { surah: "البقرة", ayah: 286, text: "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا", translation: "لا يكلف الله نفساً إلا وسعها" },
-                { surah: "آل عمران", ayah: 200, text: "يَا أَيُّهَا الَّذِينَ آمَنُوا اصْبِرُوا وَصَابِرُوا", translation: "يا أيها الذين آمنوا اصبروا وصابروا" }
-            ];
-            
-            resultsContainer.innerHTML = `
-                <div class="alert alert-success">
-                    <i class="fas fa-search me-2"></i>
-                    وجدت ${sampleResults.length} نتيجة للبحث عن: "${searchInput}"
-                </div>
-            `;
-            
-            sampleResults.forEach(result => {
-                const resultDiv = document.createElement('div');
-                resultDiv.className = 'surah-card mb-3';
-                resultDiv.innerHTML = `
-                    <div class="surah-content">
-                        <h4 class="surah-name">سورة ${result.surah} (آية ${result.ayah})</h4>
-                        <div class="ayah-text" style="font-size: 1.2rem;">${result.text}</div>
-                        <div class="ayah-translation">${result.translation}</div>
-                    </div>
-                `;
-                resultsContainer.appendChild(resultDiv);
-            });
-        }
-        
-        // Get random verse
+
+        // Get random verse for daily verse
         function getRandomVerse() {
             const randomIndex = Math.floor(Math.random() * verses.length);
             const verse = verses[randomIndex];
             
             document.getElementById('dailyVerse').textContent = verse.text;
             document.getElementById('dailyTranslation').textContent = `"${verse.translation}" (${verse.reference})`;
-        }
-        
-        // Show tajweed detail
-        function showTajweedDetail(type) {
-            const details = {
-                noon: {
-                    title: "أحكام النون الساكنة والتنوين",
-                    content: `
-                        <h4>أحكام النون الساكنة والتنوين</h4>
-                        <p>توجد أربعة أحكام للنون الساكنة والتنوين:</p>
-                        <ol>
-                            <li><strong>الإظهار:</strong> إخراج النون الساكنة أو التنوين من مخرجهما من غير غنة، ويأتي عند حروف الحلق (ء، هـ، ع، ح، غ، خ)</li>
-                            <li><strong>الإدغام:</strong> إدخال النون الساكنة أو التنوين في الحرف الذي يليهما، وينقسم إلى:
-                                <ul>
-                                    <li>إدغام بغنة: مع حروف (ي، ن، م، و)</li>
-                                    <li>إدغام بغير غنة: مع حرفي (ر، ل)</li>
-                                </ul>
-                            </li>
-                            <li><strong>الإقلاب:</strong> قلب النون الساكنة أو التنوين ميماً مع الغنة عند حرف الباء</li>
-                            <li><strong>الإخفاء:</strong> النطق بالنون الساكنة أو التنوين بين الإظهار والإدغام مع الغنة عند باقي الحروف</li>
-                        </ol>
-                    `
-                },
-                meem: {
-                    title: "أحكام الميم الساكنة",
-                    content: `
-                        <h4>أحكام الميم الساكنة</h4>
-                        <p>توجد ثلاثة أحكام للميم الساكنة:</p>
-                        <ol>
-                            <li><strong>الإخفاء الشفوي:</strong> إخفاء الميم الساكنة عند حرف الباء مع الغنة</li>
-                            <li><strong>الإدغام الشفوي:</strong> إدغام الميم الساكنة في ميم مثلها مع الغنة</li>
-                            <li><strong>الإظهار الشفوي:</strong> إظهار الميم الساكنة عند باقي الحروف</li>
-                        </ol>
-                    `
-                },
-                madd: {
-                    title: "أحكام المدود",
-                    content: `
-                        <h4>أحكام المدود</h4>
-                        <p>أنواع المدود في القرآن الكريم:</p>
-                        <ol>
-                            <li><strong>المد الطبيعي:</strong> مد بمقدار حركتين عند وجود حرف مد</li>
-                            <li><strong>المد المنفصل:</strong> مد بمقدار 4-5 حركات عند انفصال حرف المد عن الهمزة في كلمة أخرى</li>
-                            <li><strong>المد المتصل:</strong> مد بمقدار 4-5 حركات عند اتصال حرف المد بالهمزة في نفس الكلمة</li>
-                            <li><strong>المد اللازم:</strong> مد بمقدار 6 حركات عند وجود حرف مد ساكن بعده حرف ساكن أصلي</li>
-                        </ol>
-                    `
-                },
-                letters: {
-                    title: "صفات الحروف",
-                    content: `
-                        <h4>صفات الحروف العربية</h4>
-                        <p>تنقسم صفات الحروف إلى قسمين:</p>
-                        <ol>
-                            <li><strong>الصفات اللازمة:</strong> لا تفارق الحرف وهي 17 صفة مثل:
-                                <ul>
-                                    <li>الهمس (الجهر ضدها)</li>
-                                    <li>الشدة (الرخاوة ضدها)</li>
-                                    <li>الاستعلاء (الاستفال ضدها)</li>
-                                    <li>الإطباق (الانفتاح ضدها)</li>
-                                </ul>
-                            </li>
-                            <li><strong>الصفات العارضة:</strong> تأتي للحرف أحياناً وتفارقه أحياناً مثل:
-                                <ul>
-                                    <li>التفخيم</li>
-                                    <li>الترقيق</li>
-                                    <li>الإمالة</li>
-                                </ul>
-                            </li>
-                        </ol>
-                    `
-                }
-            };
             
-            const detail = details[type];
-            if (detail) {
-                alert(detail.title + "\n\n" + detail.content.replace(/<[^>]*>/g, ''));
-            }
+            // Add to recent activities
+            addActivity('قراءة آية عشوائية', verse.text);
         }
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            const backToTop = document.getElementById('backToTop');
+
+        // AJAX function to load tajweed.json
+        function loadTajweedData(type) {
+            const container = document.getElementById('ajaxContentContainer');
+            const button = event.target.closest('.read-more-btn');
             
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-                backToTop.classList.add('show');
+            // Save original button text
+            const originalText = button.innerHTML;
+            
+            // Show loading state
+            button.innerHTML = '<span class="ajax-loading"></span> جاري التحميل...';
+            button.disabled = true;
+            
+            // Clear previous content
+            container.innerHTML = '';
+            
+            // Fetch tajweed.json
+            fetch('/ajax/tajweed.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('فشل في تحميل البيانات');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Process and display data
+                    displayTajweedData(data, type, container);
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    
+                    // Scroll to content
+                    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Add to activities
+                    addActivity('قراءة درس تجويد', tajweedData[type]?.title || type);
+                })
+                .catch(error => {
+                    console.error('Error loading tajweed data:', error);
+                    showAjaxError(container, error.message);
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                });
+        }
+
+        // Display tajweed data
+        function displayTajweedData(data, type, container) {
+            // Check if type exists in local data
+            if (tajweedData[type]) {
+                const lesson = tajweedData[type];
+                
+                const content = `
+                    <div class="ajax-content fade-in">
+                        <h3 class="section-title">${lesson.title}</h3>
+                        <p style="color:#666; font-size:1.1rem; margin-bottom:20px;">${lesson.subtitle}</p>
+                        ${lesson.content}
+                    </div>
+                `;
+                
+                container.innerHTML = content;
             } else {
-                navbar.classList.remove('scrolled');
-                backToTop.classList.remove('show');
+                // Fallback to local data if type not found in JSON
+                const fallbackContent = `
+                    <div class="ajax-content fade-in">
+                        <h3 class="section-title">${type} - أحكام التجويد</h3>
+                        <p style="color:#666; font-size:1.1rem; margin-bottom:20px;">
+                            تم تحميل البيانات بنجاح من ملف tajweed.json
+                        </p>
+                        <div class="example-box">
+                            <h4>معلومات عامة عن ${type}</h4>
+                            <div class="example-arabic">﴿وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا﴾</div>
+                            <p class="example-explanation">
+                                هذا مثال على محتوى التجويد الذي تم تحميله باستخدام AJAX. في التطبيق الفعلي، 
+                                سيكون هذا المحتوى قادماً من ملف JSON يحتوي على دروس التجويد الكاملة.
+                            </p>
+                        </div>
+                        <div class="note-box">
+                            <h4 class="note-title"><i class="fas fa-lightbulb"></i> ملاحظة:</h4>
+                            <p>تم تحميل ${Object.keys(data).length} درساً من ملف tajweed.json</p>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML = fallbackContent;
             }
-        });
-        
-        // Back to top functionality
-        document.getElementById('backToTop').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        }
+
+        // Show AJAX error
+        function showAjaxError(container, errorMessage) {
+            const errorHtml = `
+                <div class="ajax-error fade-in">
+                    <h4><i class="fas fa-exclamation-triangle"></i> خطأ في التحميل</h4>
+                    <p>${errorMessage}</p>
+                    <p>جاري استخدام البيانات المحلية كبديل...</p>
+                </div>
+            `;
+            
+            container.innerHTML = errorHtml;
+            
+            // Show fallback content after 2 seconds
+            setTimeout(() => {
+                const fallbackContent = `
+                    <div class="ajax-content fade-in">
+                        <h3 class="section-title">أحكام التجويد - البيانات المحلية</h3>
+                        <div class="example-box">
+                            <h4>معلومات عامة عن التجويد</h4>
+                            <div class="example-arabic">﴿وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا﴾</div>
+                            <p class="example-explanation">
+                                التجويد علم يبحث في كيفية نطق الحروف والكلمات القرآنية نطقاً صحيحاً 
+                                وفقاً لما تلقاه النبي محمد ﷺ عن جبريل عليه السلام عن رب العزة جل وعلا.
+                            </p>
+                        </div>
+                        <div class="note-box">
+                            <h4 class="note-title"><i class="fas fa-info-circle"></i> معلومة:</h4>
+                            <p>لم يتم العثور على ملف tajweed.json. يرجى التأكد من وجود الملف في نفس المجلد.</p>
+                            <p>لاختبار AJAX، أنشئ ملف tajweed.json يحتوي على بيانات التجويد.</p>
+                        </div>
+                    </div>
+                `;
+                
+                container.innerHTML = fallbackContent;
+            }, 2000);
+        }
+
+
+        // Close tajweed detail page
+        function closeTajweedDetail() {
+            const detailPage = document.getElementById('tajweedDetailPage');
+            const mainContent = document.getElementById('mainContent');
+            
+            detailPage.classList.remove('active');
+            setTimeout(() => {
+                detailPage.style.display = 'none';
+                mainContent.style.display = 'block';
+            }, 300);
+            
+            // Scroll to tajweed section
+            const tajweedSection = document.querySelector('section.my-5');
+            if (tajweedSection) {
+                setTimeout(() => {
+                    tajweedSection.scrollIntoView({ behavior: 'smooth' });
+                }, 350);
+            }
+        }
+
+        // Add activity
+        function addActivity(type, details) {
+            // In a real app, this would be saved to user's activity log
+            console.log(`Activity: ${type} - ${details}`);
+            updateActivities();
+        }
+
+        // Update activities display
+        function updateActivities() {
+            // This would update the activities section with real data
+            // For now, we'll just log it
+        }
+
+        // Update progress circles
+        function updateProgressCircles() {
+            // Update progress circle
+            const progressCircle = document.querySelector('.progress-circle');
+            const progressText = document.querySelector('.progress-text');
+            
+            if (progressCircle && progressText) {
+                const progress = readingProgress.total;
+                progressCircle.style.background = `conic-gradient(var(--primary-green) 0% ${progress}%, #f0f0f0 ${progress}% 100%)`;
+                progressText.textContent = `${progress}%`;
+            }
+        }
+
+        // Close surah modal
+        function closeSurahModal() {
+            document.getElementById('surahModal').classList.remove('show');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div style="position:fixed; top:100px; left:30px; background:var(--primary-green); 
+                color:white; padding:15px 25px; border-radius:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2);
+                z-index:10000; animation:slideInRight 0.3s ease, slideOutRight 0.3s ease 2.7s;">
+                    <i class="fas fa-check-circle" style="margin-left:10px;"></i>
+                    ${message}
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Back to top button
+            document.getElementById('backToTop').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-        });
-        
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeSurahList();
             
-            // Set random verse as daily verse
-            getRandomVerse();
+            // Navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                    }
+                });
+            });
             
-            // Add enter key support for search
-            document.getElementById('searchInput').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    searchQuran();
+            // Login button
+            document.querySelector('.login-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification('نظام التسجيل قيد التطوير');
+            });
+        }
+
+        // Add CSS animation for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
                 }
-            });
-            
-            // Close modal on escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeSurahModal();
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
                 }
-            });
+            }
             
-            // Close modal when clicking outside
-            document.getElementById('surahModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeSurahModal();
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
                 }
-            });
-        });
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initializePage);

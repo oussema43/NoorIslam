@@ -1,4 +1,5 @@
-/* Custom CSS for Quran Recitation Platform */
+
+        /* Custom CSS for Quran Recitation Platform */
         :root {
             --primary-green: #2E8B57;
             --dark-green: #1a472a;
@@ -191,6 +192,7 @@
             text-align: center;
             position: relative;
             margin-top: -80px;
+            border-radius: 0 0 20px 20px;
         }
         
         .quran-hero-title {
@@ -260,202 +262,6 @@
             font-style: italic;
         }
         
-        /* Quran Player */
-        .quran-player {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-            transition: transform 0.3s ease;
-        }
-        
-        .quran-player:hover {
-            transform: translateY(-5px);
-        }
-        
-        .player-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
-        }
-        
-        .player-title {
-            color: var(--dark-green);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0;
-        }
-        
-        .reciter-name {
-            color: var(--primary-green);
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        
-        .player-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        
-        .player-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary-green);
-            color: white;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-        
-        .player-btn:hover {
-            background: var(--dark-green);
-            transform: scale(1.1);
-        }
-        
-        .player-btn.play-btn {
-            width: 60px;
-            height: 60px;
-            font-size: 1.5rem;
-        }
-        
-        .progress-container {
-            flex-grow: 1;
-            position: relative;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #eee;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background: var(--primary-green);
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-        
-        .time-display {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        /* Reciters Grid */
-        .reciter-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .reciter-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .reciter-img {
-            height: 200px;
-            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .reciter-icon {
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .reciter-body {
-            padding: 25px;
-        }
-        
-        .reciter-name-card {
-            color: var(--dark-green);
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .reciter-style {
-            color: var(--primary-green);
-            font-size: 1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        /* Surah Cards */
-        .surah-card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            cursor: pointer;
-        }
-        
-        .surah-card:hover {
-            transform: translateX(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-        }
-        
-        .surah-number {
-            background: var(--primary-green);
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        
-        .surah-content {
-            flex-grow: 1;
-        }
-        
-        .surah-name {
-            color: var(--dark-green);
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .surah-details {
-            color: #666;
-            font-size: 0.9rem;
-            display: flex;
-            gap: 15px;
-        }
-        
         /* Tajweed Rules */
         .tajweed-card {
             background: linear-gradient(135deg, var(--light-blue) 0%, #ffffff 100%);
@@ -464,10 +270,12 @@
             border-right: 5px solid var(--primary-green);
             margin-bottom: 20px;
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
         
         .tajweed-card:hover {
             transform: translateX(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         
         .tajweed-icon {
@@ -516,31 +324,6 @@
             font-size: 3rem;
             color: var(--gold);
             margin-bottom: 20px;
-        }
-        
-        /* Search Section */
-        .search-section {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            font-family: 'Amiri', serif;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-green);
-            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
         }
         
         /* Buttons */
@@ -899,6 +682,148 @@
             gap: 10px;
         }
         
+        /* Tajweed Detail Page Styles */
+        .tajweed-detail-page {
+            display: none;
+            position: relative;
+        }
+        
+        .tajweed-detail-page.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tajweed-header {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            padding: 40px 0;
+            margin: -20px -20px 40px -20px;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+        }
+        
+        .tajweed-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .tajweed-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .tajweed-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-5px);
+        }
+        
+        .tajweed-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        
+        .rule-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-right: 5px solid var(--primary-green);
+        }
+        
+        .rule-title {
+            color: var(--dark-green);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .rule-title i {
+            color: var(--gold);
+        }
+        
+        .example-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 4px solid var(--light-green);
+        }
+        
+        .example-arabic {
+            font-size: 2rem;
+            text-align: right;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+            font-family: 'Amiri', serif;
+        }
+        
+        .example-explanation {
+            color: #666;
+            font-size: 1.1rem;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+        
+        .note-box {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFECB3 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-right: 4px solid #FF9800;
+        }
+        
+        .note-title {
+            color: #E65100;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 992px) {
             .navbar-nav {
@@ -916,9 +841,8 @@
                 display: none;
             }
             
-            .player-controls {
-                flex-direction: column;
-                gap: 20px;
+            .tajweed-title {
+                font-size: 2rem;
             }
         }
         
@@ -943,6 +867,14 @@
                 font-size: 1.5rem;
                 line-height: 2;
             }
+            
+            .tajweed-title {
+                font-size: 1.8rem;
+            }
+            
+            .example-arabic {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -961,5 +893,337 @@
             .ayah-text {
                 font-size: 1.3rem;
             }
+            
+            .tajweed-title {
+                font-size: 1.5rem;
+            }
+            
+            .tajweed-header {
+                padding: 30px 0;
+            }
+            
+            .back-button {
+                top: 20px;
+                left: 20px;
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
-    
+
+        /* New Features */
+        
+        /* Favorites Section */
+        .favorites-section {
+            background: linear-gradient(135deg, var(--cream) 0%, #ffffff 100%);
+            padding: 50px 0;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .favorite-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-right: 5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .favorite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .favorite-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+        
+        /* Reading Progress */
+        .progress-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 30px 0;
+        }
+        
+        .progress-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--primary-green) 0% 25%, #f0f0f0 25% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .progress-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark-green);
+        }
+        
+        /* Recent Activities */
+        .activity-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-right: 4px solid var(--light-green);
+            transition: var(--transition);
+        }
+        
+        .activity-card:hover {
+            transform: translateX(-10px);
+        }
+        
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            margin-left: 15px;
+        }
+        
+        /* Quranic Insights */
+        .insight-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--dark-green);
+            transition: var(--transition);
+        }
+        
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .insight-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--dark-green);
+            opacity: 0.3;
+            line-height: 1;
+        }
+        
+        /* Prayer Times */
+        .prayer-times {
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .prayer-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .prayer-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Bookmark System */
+        .bookmark-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .bookmark-btn.active {
+            background: var(--gold);
+            color: white;
+        }
+        
+        .bookmark-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .action-btn {
+            background: white;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-btn:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .dark-mode-adjust {
+                background-color: #1a1a1a;
+                color: #f0f0f0;
+            }
+            
+            .dark-mode-adjust .benefit-card,
+            .dark-mode-adjust .tajweed-card,
+            .dark-mode-adjust .memorization-card {
+                background: #2a2a2a;
+                color: #f0f0f0;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(46, 139, 87, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-green);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Notification Bell */
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4757;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-green);
+        }
+        
+        /* Print Styles */
+        @media print {
+            .navbar, footer, .back-to-top {
+                display: none !important;
+            }
+            
+            body {
+                padding-top: 0;
+                background: white;
+            }
+            
+            .verse-section {
+                break-inside: avoid;
+            }
+        }
+
+        /* AJAX Loading Styles */
+        .ajax-loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(46, 139, 87, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary-green);
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .read-more-btn {
+            background: transparent;
+            border: none;
+            color: var(--primary-green);
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .read-more-btn:hover {
+            background: rgba(46, 139, 87, 0.1);
+            color: var(--dark-green);
+        }
+
+        .ajax-content {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-right: 4px solid var(--primary-green);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .ajax-error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 10px;
+            border-right: 4px solid #c62828;
+            margin-top: 10px;
+        }
